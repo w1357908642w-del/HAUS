@@ -20,13 +20,13 @@
 <main>
   <section id="loginPage" class="page active">
     <div class="card login-card">
-      <h2>Вход</h2>
+      <h2>Вход к ESP32</h2>
 
-      <label>Логин</label>
-      <input id="loginInput" type="text" />
+      <label>Логин ESP32</label>
+      <input id="loginInput" type="text" placeholder="esp32_2" />
 
-      <label>Пароль</label>
-      <input id="passwordInput" type="password" />
+      <label>Пароль ESP32</label>
+      <input id="passwordInput" type="password" placeholder="1234" />
 
       <button onclick="login()">Войти</button>
 
@@ -39,9 +39,15 @@
 
     <div class="grid">
       <div class="card">
-        <h3>Сенсоры</h3>
-        <p>ESP32: <b id="espOnline">-</b></p>
+        <h3>ESP32</h3>
+        <p>Устройство: <b id="espId">-</b></p>
+        <p>Статус: <b id="espOnline">-</b></p>
         <p>Последняя активность: <b id="lastSeen">-</b></p>
+        <button onclick="requestDeviceList()">Обновить список устройств</button>
+      </div>
+
+      <div class="card">
+        <h3>Сенсоры</h3>
         <p>Температура: <b id="temperature">-</b> °C</p>
         <p>Влажность воздуха: <b id="humidity">-</b> %</p>
         <p>Давление: <b id="pressure">-</b></p>
@@ -50,7 +56,7 @@
       </div>
 
       <div class="card">
-        <h3>Добавить устройство</h3>
+        <h3>Добавить / редактировать устройство</h3>
 
         <label>ID</label>
         <input id="deviceId" placeholder="watering_1" />
@@ -68,7 +74,7 @@
           <label>GPIO пин</label>
           <input id="devicePin" type="number" placeholder="25" />
 
-          <label>
+          <label class="checkbox">
             <input id="deviceActiveHigh" type="checkbox" checked />
             Active HIGH
           </label>
@@ -94,7 +100,8 @@
         <label>Раз в сколько дней</label>
         <input id="deviceRepeat" type="number" min="1" value="1" />
 
-        <button onclick="createDevice()">Добавить</button>
+        <button onclick="saveDevice()">Сохранить устройство</button>
+        <button onclick="clearDeviceForm()">Очистить форму</button>
       </div>
     </div>
 
@@ -128,6 +135,7 @@
         <thead>
           <tr>
             <th>Название</th>
+            <th>ID</th>
             <th>Тип</th>
             <th>Состояние</th>
             <th>Вкл.</th>

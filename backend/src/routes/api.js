@@ -3,7 +3,7 @@ const router = express.Router();
 
 const db = require("../db");
 const { validCredentials, createToken, authMiddleware } = require("../auth");
-const { publishToEsp, isEspOnline, deviceStatus } = require("../mqtt");
+const { publishToEsp, isEspOnline, getEspStatus } = require("../mqtt");
 
 router.post("/login", (req, res) => {
   const { login, password } = req.body;
@@ -12,15 +12,13 @@ router.post("/login", (req, res) => {
     return res.status(401).json({ error: "Неверный логин или пароль" });
   }
 
-  res.json({
-    token: createToken(login),
-  });
+  res.json({ token: createToken(login) });
 });
 
 router.use(authMiddleware);
 
 router.get("/dashboard", async (req, res) => {
-  const sensors = await db.query(
+  const sensor = await db.query(
     `
     SELECT *
     FROM sensor_data
@@ -41,10 +39,13 @@ router.get("/dashboard", async (req, res) => {
     [req.login]
   );
 
+  const status = getEspStatus(req.login);
+
   res.json({
-    online: isEspOnline(),
-    last_seen: deviceStatus.lastSeen,
-    sensor: sensors.rows[0] || null,
+    online: isEspOnline(req.login),
+    last_seen: status.lastSeen,
+    esp_device_id: status.espDeviceId,
+    sensor: sensor.rows[0] || null,
     devices: devices.rows,
   });
 });
@@ -79,21 +80,21 @@ router.get("/devices", async (req, res) => {
 });
 
 router.post("/devices/request-list", (req, res) => {
-  if (!isEspOnline()) {
+  if (!isEspOnline(req.login)) {
     return res.status(400).json({ error: "ESP32 offline" });
   }
 
-  publishToEsp("home/esp32/devices/request-list", {});
+  publishToEsp(req.login, "home/esp32/devices/request-list");
 
   res.json({ ok: true });
 });
 
 router.post("/devices", (req, res) => {
-  if (!isEspOnline()) {
+  if (!isEspOnline(req.login)) {
     return res.status(400).json({ error: "ESP32 offline" });
   }
 
-  publishToEsp("home/esp32/devices/create", {
+  publishToEsp(req.login, "home/esp32/devices/create", {
     device: req.body,
   });
 
@@ -101,11 +102,11 @@ router.post("/devices", (req, res) => {
 });
 
 router.put("/devices/:id", (req, res) => {
-  if (!isEspOnline()) {
+  if (!isEspOnline(req.login)) {
     return res.status(400).json({ error: "ESP32 offline" });
   }
 
-  publishToEsp("home/esp32/devices/update", {
+  publishToEsp(req.login, "home/esp32/devices/update", {
     device: {
       ...req.body,
       id: req.params.id,
@@ -116,11 +117,11 @@ router.put("/devices/:id", (req, res) => {
 });
 
 router.delete("/devices/:id", (req, res) => {
-  if (!isEspOnline()) {
+  if (!isEspOnline(req.login)) {
     return res.status(400).json({ error: "ESP32 offline" });
   }
 
-  publishToEsp("home/esp32/devices/delete", {
+  publishToEsp(req.login, "home/esp32/devices/delete", {
     id: req.params.id,
   });
 
@@ -128,11 +129,11 @@ router.delete("/devices/:id", (req, res) => {
 });
 
 router.post("/devices/:id/state", (req, res) => {
-  if (!isEspOnline()) {
+  if (!isEspOnline(req.login)) {
     return res.status(400).json({ error: "ESP32 offline" });
   }
 
-  publishToEsp("home/esp32/devices/set", {
+  publishToEsp(req.login, "home/esp32/devices/set", {
     id: req.params.id,
     state: req.body.state,
   });

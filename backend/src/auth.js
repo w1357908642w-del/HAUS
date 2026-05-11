@@ -2,12 +2,18 @@ const crypto = require("crypto");
 
 const SECRET = "haus-local-secret";
 
+function getCredentials() {
+  return JSON.parse(process.env.DEVICE_CREDENTIALS || "{}");
+}
+
 function validCredentials(login, password) {
-  return login === process.env.APP_LOGIN && password === process.env.APP_PASSWORD;
+  const credentials = getCredentials();
+  return credentials[login] === password;
 }
 
 function createToken(login) {
   const payload = `${login}:${Date.now()}`;
+
   const signature = crypto
     .createHmac("sha256", SECRET)
     .update(payload)
@@ -23,10 +29,9 @@ function verifyToken(token) {
     const decoded = Buffer.from(token, "base64").toString("utf8");
     const [login, timestamp, signature] = decoded.split(":");
 
-    const payload = `${login}:${timestamp}`;
     const expected = crypto
       .createHmac("sha256", SECRET)
-      .update(payload)
+      .update(`${login}:${timestamp}`)
       .digest("hex");
 
     if (signature !== expected) return null;

@@ -78,6 +78,7 @@ async function loadDashboard() {
 
   const data = await res.json();
 
+  espId.textContent = data.esp_device_id || "-";
   espOnline.textContent = data.online ? "онлайн" : "оффлайн";
   lastSeen.textContent = formatDate(data.last_seen);
 
@@ -124,10 +125,24 @@ function fillEditForm(dev) {
   deviceTurnOn.value = dev.turn_on_time || "";
   deviceTurnOff.value = dev.turn_off_time || "";
   deviceRepeat.value = dev.repeat_every_days || 1;
-
   devicePin.value = dev.pin || "";
   deviceActiveHigh.checked = dev.active_high !== false;
   deviceIp.value = dev.ip || "";
+
+  toggleDeviceFields();
+}
+
+function clearDeviceForm() {
+  deviceId.value = "";
+  deviceName.value = "";
+  deviceType.value = "GPIO";
+  deviceMode.value = "AUTO";
+  deviceTurnOn.value = "";
+  deviceTurnOff.value = "";
+  deviceRepeat.value = 1;
+  devicePin.value = "";
+  deviceActiveHigh.checked = true;
+  deviceIp.value = "";
 
   toggleDeviceFields();
 }
@@ -167,15 +182,19 @@ function collectDeviceForm() {
   return device;
 }
 
-async function createDevice() {
+async function saveDevice() {
   const device = collectDeviceForm();
 
-  await fetch(`${API}/devices`, {
-    method: "POST",
+  const existing = [...document.querySelectorAll("#devicesGrid .card")]
+    .some(card => card.innerText.includes(`ID: ${device.id}`));
+
+  await fetch(existing ? `${API}/devices/${device.id}` : `${API}/devices`, {
+    method: existing ? "PUT" : "POST",
     headers: headers(),
     body: JSON.stringify(device),
   });
 
+  await requestDeviceList();
   await loadDashboard();
 }
 
@@ -186,7 +205,7 @@ async function setDeviceState(id, state) {
     body: JSON.stringify({ state }),
   });
 
-  await loadDashboard();
+  setTimeout(loadDashboard, 500);
 }
 
 async function deleteDevice(id) {
@@ -195,7 +214,14 @@ async function deleteDevice(id) {
     headers: headers(),
   });
 
-  await loadDashboard();
+  setTimeout(loadDashboard, 500);
+}
+
+async function requestDeviceList() {
+  await fetch(`${API}/devices/request-list`, {
+    method: "POST",
+    headers: headers(),
+  });
 }
 
 async function loadTables() {
@@ -225,6 +251,7 @@ async function loadTables() {
   deviceTable.innerHTML = devices.map(row => `
     <tr>
       <td>${row.name}</td>
+      <td>${row.managed_id}</td>
       <td>${row.type}</td>
       <td>${row.state}</td>
       <td>${row.turn_on_time ?? "-"}</td>

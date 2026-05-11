@@ -1,24 +1,37 @@
 const mqtt = require("mqtt");
 const db = require("./db");
+const { validCredentials } = require("./auth");
 
 const client = mqtt.connect(process.env.MQTT_URL);
 
-const deviceStatus = {
-  online: false,
-  lastSeen: null,
-};
+const deviceStatus = {};
 
 function isValidAuth(auth) {
-  return (
-    auth &&
-    auth.login === process.env.APP_LOGIN &&
-    auth.password === process.env.APP_PASSWORD
-  );
+  return auth && validCredentials(auth.login, auth.password);
 }
 
-function touchDevice() {
-  deviceStatus.online = true;
-  deviceStatus.lastSeen = new Date();
+function touchDevice(login, espDeviceId) {
+  deviceStatus[login] = {
+    online: true,
+    espDeviceId,
+    lastSeen: new Date(),
+  };
+}
+
+function isEspOnline(login) {
+  const status = deviceStatus[login];
+
+  if (!status?.lastSeen) return false;
+
+  return Date.now() - new Date(status.lastSeen).getTime() < 30000;
+}
+
+function getEspStatus(login) {
+  return deviceStatus[login] || {
+    online: false,
+    espDeviceId: null,
+    lastSeen: null,
+  };
 }
 
 client.on("connect", () => {
@@ -38,13 +51,20 @@ client.on("message", async (topic, message) => {
       console.log(topic, payload);
     }
 
-    const data = JSON.parse(payload);
+    let data;
 
-    if (!isValidAuth(data.auth)) {
+    try {
+      data = JSON.parse(payload);
+    } catch {
       return;
     }
 
-    touchDevice();
+    if (!isValidAuth(data.auth)) return;
+
+    const login = data.auth.login;
+    const espDeviceId = data.device || "esp32";
+
+    touchDevice(login, espDeviceId);
 
     if (topic === "home/esp32/status") {
       return;
@@ -65,8 +85,8 @@ client.on("message", async (topic, message) => {
         VALUES ($1,$2,$3,$4,$5,$6,$7)
         `,
         [
-          data.auth.login,
-          data.device || "esp32-smarthome",
+          login,
+          espDeviceId,
           data.temperature ?? null,
           data.humidity ?? null,
           data.pressure ?? null,
@@ -79,21 +99,21 @@ client.on("message", async (topic, message) => {
     if (topic === "home/esp32/devices/list") {
       const devices = data.devices || [];
 
-      for (const dev of devices) {
-        await upsertDevice(data.auth.login, data.device || "esp32-smarthome", dev);
+      for (const device of devices) {
+        await upsertDevice(login, espDeviceId, device);
       }
     }
 
     if (topic === "home/esp32/devices/state") {
-      await upsertDevice(data.auth.login, data.device || "esp32-smarthome", data.deviceData);
+      await upsertDevice(login, espDeviceId, data.deviceData);
     }
   } catch (error) {
     console.error("MQTT error:", error.message);
   }
 });
 
-async function upsertDevice(login, espDeviceId, dev) {
-  if (!dev || !dev.id) return;
+async function upsertDevice(login, espDeviceId, device) {
+  if (!device?.id) return;
 
   await db.query(
     `
@@ -133,46 +153,40 @@ async function upsertDevice(login, espDeviceId, dev) {
     [
       login,
       espDeviceId,
-      dev.id,
-      dev.name,
-      dev.type,
-      dev.state || "OFF",
-      dev.mode || "AUTO",
-      dev.turnOnTime || null,
-      dev.turnOffTime || null,
-      dev.lastTurnOnDate || null,
-      dev.repeatEveryDays || 1,
-      dev.pin ?? null,
-      dev.activeHigh ?? null,
-      dev.ip || null,
+      device.id,
+      device.name,
+      device.type,
+      device.state || "OFF",
+      device.mode || "AUTO",
+      device.turnOnTime || null,
+      device.turnOffTime || null,
+      device.lastTurnOnDate || null,
+      device.repeatEveryDays || 1,
+      device.pin ?? null,
+      device.activeHigh ?? null,
+      device.ip || null,
     ]
   );
 }
 
-function publishToEsp(topic, payload) {
+function publishToEsp(login, topic, payload = {}) {
+  const credentials = JSON.parse(process.env.DEVICE_CREDENTIALS || "{}");
+
   client.publish(
     topic,
     JSON.stringify({
       auth: {
-        login: process.env.APP_LOGIN,
-        password: process.env.APP_PASSWORD,
+        login,
+        password: credentials[login],
       },
       ...payload,
     })
   );
 }
 
-function isEspOnline() {
-  if (!deviceStatus.lastSeen) return false;
-
-  const diff = Date.now() - new Date(deviceStatus.lastSeen).getTime();
-
-  return diff < 30000;
-}
-
 module.exports = {
   client,
   publishToEsp,
   isEspOnline,
-  deviceStatus,
+  getEspStatus,
 };

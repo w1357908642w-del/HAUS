@@ -58,6 +58,16 @@ label {
   margin-bottom: 4px;
 }
 
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox input {
+  width: auto;
+}
+
 input,
 select,
 button {
@@ -68,6 +78,7 @@ button {
 
 button {
   margin-top: 12px;
+  cursor: pointer;
 }
 
 .device-actions {
