@@ -1880,3 +1880,24 @@
 1778531059: Client esp32-2 [172.17.0.1:45238] disconnected: session taken over.
 1778531059: New client connected from 172.17.0.1:38476 as esp32-2 (p4, c1, k15).
 1778531061: Client esp32-2 [172.17.0.1:38476] disconnected: connection closed by client.
+1778531065: New connection from 172.17.0.1:38484 on port 1883.
+1778531065: New client connected from 172.17.0.1:38484 as esp32-2 (p4, c1, k15).
+1778531071: New connection from 172.17.0.1:59786 on port 1883.
+1778531071: Client esp32-2 [172.17.0.1:38484] disconnected: session taken over.
+1778531071: New client connected from 172.17.0.1:59786 as esp32-2 (p4, c1, k15).
+1778531077: New connection from 172.17.0.1:59790 on port 1883.
+1778531077: Client esp32-2 [172.17.0.1:59786] disconnected: session taken over.
+1778531077: New client connected from 172.17.0.1:59790 as esp32-2 (p4, c1, k15).
+1778531083: New connection from 172.17.0.1:33722 on port 1883.
+1778531083: Client esp32-2 [172.17.0.1:59790] disconnected: session taken over.
+1778531083: New client connected from 172.17.0.1:33722 as esp32-2 (p4, c1, k15).
+1778531085: Client esp32-2 [172.17.0.1:33722] disconnected: connection closed by client.
+1778531088: New connection from 172.17.0.1:40510 on port 1883.
+1778531088: New client connected from 172.17.0.1:40510 as esp32-2 (p4, c1, k15).
+1778531091: Client esp32-2 [172.17.0.1:40510] disconnected: connection closed by client.
+1778531094: New connection from 172.17.0.1:40512 on port 1883.
+1778531094: New client connected from 172.17.0.1:40512 as esp32-2 (p4, c1, k15).
+1778531097: Client esp32-2 [172.17.0.1:40512] disconnected: connection closed by client.
+1778531100: New connection from 172.17.0.1:46260 on port 1883.
+1778531100: New client connected from 172.17.0.1:46260 as esp32-2 (p4, c1, k15).
+1778531102: Client esp32-2 [172.17.0.1:46260] disconnected: connection closed by client.
