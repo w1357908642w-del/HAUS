@@ -1,0 +1,548 @@
+1777725210: mosquitto version 2.1.2 starting
+1777725210: Config loaded from /mosquitto/config/mosquitto.conf.
+1777725210: Bridge support available.
+1777725210: Persistence support available.
+1777725210: TLS support available.
+1777725210: TLS-PSK support available.
+1777725210: Websockets support available.
+1777725210: Opening ipv4 listen socket on port 1883.
+1777725210: Opening ipv6 listen socket on port 1883.
+1777725210: mosquitto version 2.1.2 running
+1777727011: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777728811: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777730612: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777804839: mosquitto version 2.1.2 starting
+1777804839: Config loaded from /mosquitto/config/mosquitto.conf.
+1777804839: Bridge support available.
+1777804839: Persistence support available.
+1777804839: TLS support available.
+1777804839: TLS-PSK support available.
+1777804839: Websockets support available.
+1777804839: Opening ipv4 listen socket on port 1883.
+1777804839: Opening ipv6 listen socket on port 1883.
+1777804839: mosquitto version 2.1.2 running
+1777805862: New connection from 172.17.0.1:47268 on port 1883.
+1777805862: New client connected from 172.17.0.1:47268 as mqttjs_aeaf3071 (p4, c1, k60).
+1777806359: Client mqttjs_aeaf3071 [172.17.0.1:47268] disconnected: connection closed by client.
+1777806363: New connection from 172.17.0.1:58004 on port 1883.
+1777806363: New client connected from 172.17.0.1:58004 as mqttjs_c0d0372d (p4, c1, k60).
+1777806440: Client mqttjs_c0d0372d [172.17.0.1:58004] disconnected: connection closed by client.
+1777806449: New connection from 172.17.0.1:55156 on port 1883.
+1777806449: New client connected from 172.17.0.1:55156 as mqttjs_1f49cdc8 (p4, c1, k60).
+1777806564: Client mqttjs_1f49cdc8 [172.17.0.1:55156] disconnected: connection closed by client.
+1777806567: New connection from 172.17.0.1:38608 on port 1883.
+1777806567: New client connected from 172.17.0.1:38608 as mqttjs_8ff6eb69 (p4, c1, k60).
+1777806640: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777806671: Client mqttjs_8ff6eb69 [172.17.0.1:38608] disconnected: connection closed by client.
+1777806679: New connection from 172.17.0.1:55440 on port 1883.
+1777806679: New client connected from 172.17.0.1:55440 as mqttjs_5124535b (p4, c1, k60).
+1777807398: New connection from 172.17.0.1:52296 on port 1883.
+1777807398: New client connected from 172.17.0.1:52296 as esp32-livingroom-2cb9 (p4, c1, k15).
+1777807428: New connection from 172.17.0.1:59124 on port 1883.
+1777807428: New client connected from 172.17.0.1:59124 as esp32-livingroom-5624 (p4, c1, k15).
+1777807436: Client esp32-livingroom-2cb9 [172.17.0.1:52296] disconnected: connection closed by client.
+1777807459: Client esp32-livingroom-5624 [172.17.0.1:59124] disconnected: exceeded timeout.
+1777808441: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777810241: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777811011: New connection from 172.17.0.1:40266 on port 1883.
+1777811011: New client connected from 172.17.0.1:40266 as esp32-livingroom-c758 (p4, c1, k15).
+1777811038: Client esp32-livingroom-c758 [172.17.0.1:40266] disconnected: exceeded timeout.
+1777812042: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777813843: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777815193: New connection from 172.17.0.1:43134 on port 1883.
+1777815193: New client connected from 172.17.0.1:43134 as esp32-livingroom-6e2d (p4, c1, k15).
+1777815254: Client esp32-livingroom-6e2d [172.17.0.1:43134] disconnected: exceeded timeout.
+1777815260: New connection from 172.17.0.1:39650 on port 1883.
+1777815260: New client connected from 172.17.0.1:39650 as esp32-smarthome (p4, c1, k15).
+1777815273: New connection from 172.17.0.1:54026 on port 1883.
+1777815273: Client esp32-smarthome [172.17.0.1:39650] disconnected: session taken over.
+1777815273: New client connected from 172.17.0.1:54026 as esp32-smarthome (p4, c1, k15).
+1777815336: Client esp32-smarthome [172.17.0.1:54026] disconnected: exceeded timeout.
+1777815644: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777817444: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777817815: New connection from 172.17.0.1:34452 on port 1883.
+1777817815: New client connected from 172.17.0.1:34452 as esp32-smarthome (p4, c1, k15).
+1777817934: New connection from 172.17.0.1:57856 on port 1883.
+1777817934: Client esp32-smarthome [172.17.0.1:34452] disconnected: session taken over.
+1777817934: New client connected from 172.17.0.1:57856 as esp32-smarthome (p4, c1, k15).
+1777818046: Client esp32-smarthome [172.17.0.1:57856] disconnected: exceeded timeout.
+1777819245: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777820630: New connection from 172.17.0.1:44508 on port 1883.
+1777820630: New client connected from 172.17.0.1:44508 as esp32-smarthome (p4, c1, k15).
+1777820652: New connection from 172.17.0.1:44134 on port 1883.
+1777820652: Client esp32-smarthome [172.17.0.1:44508] disconnected: session taken over.
+1777820652: New client connected from 172.17.0.1:44134 as esp32-smarthome (p4, c1, k15).
+1777820660: New connection from 172.17.0.1:44140 on port 1883.
+1777820660: Client esp32-smarthome [172.17.0.1:44134] disconnected: session taken over.
+1777820660: New client connected from 172.17.0.1:44140 as esp32-smarthome (p4, c1, k15).
+1777820675: Client esp32-smarthome [172.17.0.1:44140] disconnected: connection closed by client.
+1777820675: New connection from 172.17.0.1:37592 on port 1883.
+1777820675: New client connected from 172.17.0.1:37592 as esp32-smarthome (p4, c1, k15).
+1777820703: Client esp32-smarthome [172.17.0.1:37592] disconnected: exceeded timeout.
+1777821032: New connection from 172.17.0.1:60552 on port 1883.
+1777821032: New client connected from 172.17.0.1:60552 as esp32-smarthome (p4, c1, k15).
+1777821046: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777821048: New connection from 172.17.0.1:59482 on port 1883.
+1777821048: Client esp32-smarthome [172.17.0.1:60552] disconnected: session taken over.
+1777821048: New client connected from 172.17.0.1:59482 as esp32-smarthome (p4, c1, k15).
+1777821071: Client esp32-smarthome [172.17.0.1:59482] disconnected: exceeded timeout.
+1777821080: New connection from 172.17.0.1:47038 on port 1883.
+1777821080: New client connected from 172.17.0.1:47038 as esp32-smarthome (p4, c1, k15).
+1777821232: Client esp32-smarthome [172.17.0.1:47038] disconnected: exceeded timeout.
+1777821344: New connection from 172.17.0.1:57276 on port 1883.
+1777821344: New client connected from 172.17.0.1:57276 as esp32-smarthome (p4, c1, k15).
+1777821372: New connection from 172.17.0.1:49424 on port 1883.
+1777821372: Client esp32-smarthome [172.17.0.1:57276] disconnected: session taken over.
+1777821372: New client connected from 172.17.0.1:49424 as esp32-smarthome (p4, c1, k15).
+1777821425: Client esp32-smarthome [172.17.0.1:49424] disconnected: exceeded timeout.
+1777822271: New connection from 172.17.0.1:55012 on port 1883.
+1777822271: New client connected from 172.17.0.1:55012 as esp32-smarthome (p4, c1, k15).
+1777822359: Client esp32-smarthome [172.17.0.1:55012] disconnected: exceeded timeout.
+1777822847: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777822849: New connection from 172.17.0.1:59786 on port 1883.
+1777822849: New client connected from 172.17.0.1:59786 as esp32-smarthome (p4, c1, k15).
+1777822896: Client esp32-smarthome [172.17.0.1:59786] disconnected: exceeded timeout.
+1777822913: New connection from 172.17.0.1:46588 on port 1883.
+1777822913: New client connected from 172.17.0.1:46588 as esp32-smarthome (p4, c1, k15).
+1777822921: New connection from 172.17.0.1:57924 on port 1883.
+1777822921: Client esp32-smarthome [172.17.0.1:46588] disconnected: session taken over.
+1777822921: New client connected from 172.17.0.1:57924 as esp32-smarthome (p4, c1, k15).
+1777822983: Client esp32-smarthome [172.17.0.1:57924] disconnected: exceeded timeout.
+1777823030: New connection from 172.17.0.1:38276 on port 1883.
+1777823030: New client connected from 172.17.0.1:38276 as esp32-smarthome (p4, c1, k15).
+1777823103: Client esp32-smarthome [172.17.0.1:38276] disconnected: exceeded timeout.
+1777823112: New connection from 172.17.0.1:48204 on port 1883.
+1777823112: New client connected from 172.17.0.1:48204 as esp32-smarthome (p4, c1, k15).
+1777823495: Client esp32-smarthome [172.17.0.1:48204] disconnected: exceeded timeout.
+1777823903: New connection from 172.17.0.1:45666 on port 1883.
+1777823903: New client connected from 172.17.0.1:45666 as esp32-smarthome (p4, c1, k15).
+1777824011: Client esp32-smarthome [172.17.0.1:45666] disconnected: exceeded timeout.
+1777824500: New connection from 172.17.0.1:57118 on port 1883.
+1777824500: New client connected from 172.17.0.1:57118 as esp32-smarthome (p4, c1, k15).
+1777824563: Client esp32-smarthome [172.17.0.1:57118] disconnected: exceeded timeout.
+1777824648: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777824925: New connection from 172.17.0.1:41994 on port 1883.
+1777824925: New client connected from 172.17.0.1:41994 as esp32-smarthome (p4, c1, k15).
+1777824968: Client esp32-smarthome [172.17.0.1:41994] disconnected: exceeded timeout.
+1777824975: New connection from 172.17.0.1:57640 on port 1883.
+1777824975: New client connected from 172.17.0.1:57640 as esp32-smarthome (p4, c1, k15).
+1777825038: New connection from 172.17.0.1:44122 on port 1883.
+1777825038: Client esp32-smarthome [172.17.0.1:57640] disconnected: session taken over.
+1777825038: New client connected from 172.17.0.1:44122 as esp32-smarthome (p4, c1, k15).
+1777825086: Client esp32-smarthome [172.17.0.1:44122] disconnected: exceeded timeout.
+1777825092: New connection from 172.17.0.1:58822 on port 1883.
+1777825092: New client connected from 172.17.0.1:58822 as esp32-smarthome (p4, c1, k15).
+1777825167: New connection from 172.17.0.1:40516 on port 1883.
+1777825167: Client esp32-smarthome [172.17.0.1:58822] disconnected: session taken over.
+1777825167: New client connected from 172.17.0.1:40516 as esp32-smarthome (p4, c1, k15).
+1777825281: Client esp32-smarthome [172.17.0.1:40516] disconnected: exceeded timeout.
+1777825858: New connection from 172.17.0.1:51002 on port 1883.
+1777825858: New client connected from 172.17.0.1:51002 as esp32-smarthome (p4, c1, k15).
+1777825931: Client esp32-smarthome [172.17.0.1:51002] disconnected: exceeded timeout.
+1777825990: New connection from 172.17.0.1:55742 on port 1883.
+1777825990: New client connected from 172.17.0.1:55742 as esp32-smarthome (p4, c1, k15).
+1777826023: Client esp32-smarthome [172.17.0.1:55742] disconnected: exceeded timeout.
+1777826028: New connection from 172.17.0.1:39294 on port 1883.
+1777826028: New client connected from 172.17.0.1:39294 as esp32-smarthome (p4, c1, k15).
+1777826096: Client esp32-smarthome [172.17.0.1:39294] disconnected: exceeded timeout.
+1777826102: New connection from 172.17.0.1:59252 on port 1883.
+1777826102: New client connected from 172.17.0.1:59252 as esp32-smarthome (p4, c1, k15).
+1777826145: Client esp32-smarthome [172.17.0.1:59252] disconnected: exceeded timeout.
+1777826449: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777828249: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777830050: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1777830954: New connection from 172.17.0.1:47160 on port 1883.
+1777830954: New client connected from 172.17.0.1:47160 as esp32-smarthome (p4, c1, k15).
+1777831002: Client esp32-smarthome [172.17.0.1:47160] disconnected: exceeded timeout.
+1777831327: Client mqttjs_5124535b [172.17.0.1:55440] disconnected: connection closed by client.
+1778412270: mosquitto version 2.1.2 starting
+1778412270: Config loaded from /mosquitto/config/mosquitto.conf.
+1778412270: Bridge support available.
+1778412270: Persistence support available.
+1778412270: TLS support available.
+1778412270: TLS-PSK support available.
+1778412270: Websockets support available.
+1778412270: Opening ipv4 listen socket on port 1883.
+1778412270: Opening ipv6 listen socket on port 1883.
+1778412270: mosquitto version 2.1.2 running
+1778412270: New connection from 172.17.0.1:45766 on port 1883.
+1778412270: New client connected from 172.17.0.1:45766 as mqttjs_1d1da380 (p4, c1, k60).
+1778412270: Client mqttjs_1d1da380 [172.17.0.1:45766] disconnected: connection closed by client.
+1778412271: New connection from 172.17.0.1:46848 on port 1883.
+1778412271: New client connected from 172.17.0.1:46848 as esp32-smarthome (p4, c1, k15).
+1778412293: New connection from 172.17.0.1:46386 on port 1883.
+1778412293: New client connected from 172.17.0.1:46386 as mqttjs_81189f99 (p4, c1, k60).
+1778412293: Client mqttjs_81189f99 [172.17.0.1:46386] disconnected: connection closed by client.
+1778412484: New connection from 172.17.0.1:60774 on port 1883.
+1778412484: New client connected from 172.17.0.1:60774 as mqttjs_406d47a4 (p4, c1, k60).
+1778413874: Client esp32-smarthome [172.17.0.1:46848] disconnected: exceeded timeout.
+1778414070: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778415871: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778417672: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778419473: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778421274: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778423075: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778424875: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778426676: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778428477: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778430278: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778432079: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778433880: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778435680: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778437481: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778439282: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778441083: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778442884: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778485378: mosquitto version 2.1.2 starting
+1778485378: Config loaded from /mosquitto/config/mosquitto.conf.
+1778485378: Bridge support available.
+1778485378: Persistence support available.
+1778485378: TLS support available.
+1778485378: TLS-PSK support available.
+1778485378: Websockets support available.
+1778485378: Opening ipv4 listen socket on port 1883.
+1778485378: Opening ipv6 listen socket on port 1883.
+1778485378: mosquitto version 2.1.2 running
+1778485419: New connection from 172.17.0.1:53966 on port 1883.
+1778485419: New client connected from 172.17.0.1:53966 as mqttjs_c3257120 (p4, c1, k60).
+1778487178: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778488979: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778490780: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778492581: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778494382: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778496182: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778497983: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778499784: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778501585: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778503386: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778505187: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778506988: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778508788: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778510589: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778511292: New connection from 172.17.0.1:53806 on port 1883.
+1778511292: New client connected from 172.17.0.1:53806 as esp32-smarthome (p4, c1, k15).
+1778512000: Client esp32-smarthome [172.17.0.1:53806] disconnected: exceeded timeout.
+1778512011: New connection from 172.17.0.1:42726 on port 1883.
+1778512011: New client connected from 172.17.0.1:42726 as esp32-smarthome (p4, c1, k15).
+1778512390: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778513028: Client esp32-smarthome [172.17.0.1:42726] disconnected: connection closed by client.
+1778513028: New connection from 172.17.0.1:36214 on port 1883.
+1778513028: New client connected from 172.17.0.1:36214 as esp32-smarthome (p4, c1, k15).
+1778513709: Client esp32-smarthome [172.17.0.1:36214] disconnected: exceeded timeout.
+1778513711: New connection from 172.17.0.1:53160 on port 1883.
+1778513716: New client connected from 172.17.0.1:53160 as esp32-smarthome (p4, c1, k15).
+1778513716: Client esp32-smarthome [172.17.0.1:53160] disconnected: connection closed by client.
+1778513717: New connection from 172.17.0.1:52060 on port 1883.
+1778513717: New client connected from 172.17.0.1:52060 as esp32-smarthome (p4, c1, k15).
+1778513788: New connection from 172.17.0.1:36986 on port 1883.
+1778513788: Client esp32-smarthome [172.17.0.1:52060] disconnected: session taken over.
+1778513788: New client connected from 172.17.0.1:36986 as esp32-smarthome (p4, c1, k15).
+1778513788: New connection from 172.17.0.1:37002 on port 1883.
+1778513788: Client esp32-smarthome [172.17.0.1:36986] disconnected: session taken over.
+1778513788: New client connected from 172.17.0.1:37002 as esp32-smarthome (p4, c1, k15).
+1778513826: New connection from 172.17.0.1:59408 on port 1883.
+1778513826: Client esp32-smarthome [172.17.0.1:37002] disconnected: session taken over.
+1778513826: New client connected from 172.17.0.1:59408 as esp32-smarthome (p4, c1, k15).
+1778513849: Client esp32-smarthome [172.17.0.1:59408] disconnected: exceeded timeout.
+1778513854: New connection from 172.17.0.1:54488 on port 1883.
+1778513854: New client connected from 172.17.0.1:54488 as esp32-smarthome (p4, c1, k15).
+1778513854: Client esp32-smarthome [172.17.0.1:54488] disconnected: connection closed by client.
+1778513854: New connection from 172.17.0.1:54500 on port 1883.
+1778513859: New client connected from 172.17.0.1:54500 as esp32-smarthome (p4, c1, k15).
+1778513859: Client esp32-smarthome [172.17.0.1:54500] disconnected: connection closed by client.
+1778513860: New connection from 172.17.0.1:34084 on port 1883.
+1778513865: New client connected from 172.17.0.1:34084 as esp32-smarthome (p4, c1, k15).
+1778513865: Client esp32-smarthome [172.17.0.1:34084] disconnected: connection closed by client.
+1778513865: New connection from 172.17.0.1:34086 on port 1883.
+1778513865: New client connected from 172.17.0.1:34086 as esp32-smarthome (p4, c1, k15).
+1778513888: Client esp32-smarthome [172.17.0.1:34086] disconnected: exceeded timeout.
+1778513891: New connection from 172.17.0.1:37414 on port 1883.
+1778513891: New client connected from 172.17.0.1:37414 as esp32-smarthome (p4, c1, k15).
+1778513913: Client esp32-smarthome [172.17.0.1:37414] disconnected: exceeded timeout.
+1778513914: New connection from 172.17.0.1:37460 on port 1883.
+1778513914: New client connected from 172.17.0.1:37460 as esp32-smarthome (p4, c1, k15).
+1778513938: Client esp32-smarthome [172.17.0.1:37460] disconnected: exceeded timeout.
+1778513939: New connection from 172.17.0.1:58996 on port 1883.
+1778513939: New client connected from 172.17.0.1:58996 as esp32-smarthome (p4, c1, k15).
+1778513962: Client esp32-smarthome [172.17.0.1:58996] disconnected: exceeded timeout.
+1778513963: New connection from 172.17.0.1:51926 on port 1883.
+1778513963: New client connected from 172.17.0.1:51926 as esp32-smarthome (p4, c1, k15).
+1778514006: Client esp32-smarthome [172.17.0.1:51926] disconnected: exceeded timeout.
+1778514007: New connection from 172.17.0.1:35370 on port 1883.
+1778514007: New client connected from 172.17.0.1:35370 as esp32-smarthome (p4, c1, k15).
+1778514007: Client esp32-smarthome [172.17.0.1:35370] disconnected: connection closed by client.
+1778514011: New connection from 172.17.0.1:35386 on port 1883.
+1778514011: New client connected from 172.17.0.1:35386 as esp32-smarthome (p4, c1, k15).
+1778514107: Client esp32-smarthome [172.17.0.1:35386] disconnected: connection closed by client.
+1778514107: New connection from 172.17.0.1:60654 on port 1883.
+1778514107: New client connected from 172.17.0.1:60654 as esp32-smarthome (p4, c1, k15).
+1778514168: New connection from 172.17.0.1:44298 on port 1883.
+1778514168: Client esp32-smarthome [172.17.0.1:60654] disconnected: exceeded timeout.
+1778514168: New client connected from 172.17.0.1:44298 as esp32-smarthome (p4, c1, k15).
+1778514191: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778514194: Client esp32-smarthome [172.17.0.1:44298] disconnected: exceeded timeout.
+1778514194: New connection from 172.17.0.1:40092 on port 1883.
+1778514194: New client connected from 172.17.0.1:40092 as esp32-smarthome (p4, c1, k15).
+1778514864: Client esp32-smarthome [172.17.0.1:40092] disconnected: exceeded timeout.
+1778515992: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778516978: New connection from 172.17.0.1:57640 on port 1883.
+1778516978: New client connected from 172.17.0.1:57640 as esp32-smarthome (p4, c1, k15).
+1778517067: Client esp32-smarthome [172.17.0.1:57640] disconnected: exceeded timeout.
+1778517075: New connection from 172.17.0.1:43530 on port 1883.
+1778517075: New client connected from 172.17.0.1:43530 as esp32-smarthome (p4, c1, k15).
+1778517532: Client mqttjs_c3257120 [172.17.0.1:53966] disconnected: connection closed by client.
+1778517554: New connection from 172.17.0.1:39074 on port 1883.
+1778517554: New client connected from 172.17.0.1:39074 as mqttjs_3118b344 (p4, c1, k60).
+1778517585: mosquitto version 2.1.2 terminating
+1778517585: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778517588: mosquitto version 2.1.2 starting
+1778517588: Config loaded from /mosquitto/config/mosquitto.conf.
+1778517588: Bridge support available.
+1778517588: Persistence support available.
+1778517588: TLS support available.
+1778517588: TLS-PSK support available.
+1778517588: Websockets support available.
+1778517588: Opening ipv4 listen socket on port 1883.
+1778517588: Opening ipv6 listen socket on port 1883.
+1778517588: mosquitto version 2.1.2 running
+1778517588: New connection from 172.17.0.1:52738 on port 1883.
+1778517588: New client connected from 172.17.0.1:52738 as mqttjs_3118b344 (p4, c1, k60).
+1778517590: New connection from 172.17.0.1:52746 on port 1883.
+1778517590: New client connected from 172.17.0.1:52746 as esp32-smarthome (p4, c1, k15).
+1778517616: New connection from 172.17.0.1:48958 on port 1883.
+1778517616: Client esp32-smarthome [172.17.0.1:52746] disconnected: session taken over.
+1778517616: New client connected from 172.17.0.1:48958 as esp32-smarthome (p4, c1, k15).
+1778517626: Client mqttjs_3118b344 [172.17.0.1:52738] disconnected: connection closed by client.
+1778517648: New connection from 172.17.0.1:33672 on port 1883.
+1778517648: New client connected from 172.17.0.1:33672 as mqttjs_d744709e (p4, c1, k60).
+1778517653: Client mqttjs_d744709e [172.17.0.1:33672] disconnected: connection closed by client.
+1778517664: New connection from 172.17.0.1:48376 on port 1883.
+1778517664: New client connected from 172.17.0.1:48376 as mqttjs_753f1024 (p4, c1, k60).
+1778517686: Client mqttjs_753f1024 [172.17.0.1:48376] disconnected: connection closed by client.
+1778517689: New connection from 172.17.0.1:36962 on port 1883.
+1778517689: New client connected from 172.17.0.1:36962 as mqttjs_255dfa55 (p4, c1, k60).
+1778517829: Client mqttjs_255dfa55 [172.17.0.1:36962] disconnected: connection closed by client.
+1778517831: New connection from 172.17.0.1:45768 on port 1883.
+1778517831: New client connected from 172.17.0.1:45768 as mqttjs_af4cc1ee (p4, c1, k60).
+1778518364: Client esp32-smarthome [172.17.0.1:48958] disconnected: connection closed by client.
+1778518364: New connection from 172.17.0.1:57736 on port 1883.
+1778518368: New client connected from 172.17.0.1:57736 as esp32-smarthome (p4, c1, k15).
+1778518368: Client esp32-smarthome [172.17.0.1:57736] disconnected: connection closed by client.
+1778518369: New connection from 172.17.0.1:36636 on port 1883.
+1778518369: New client connected from 172.17.0.1:36636 as esp32-smarthome (p4, c1, k15).
+1778518393: Client esp32-smarthome [172.17.0.1:36636] disconnected: exceeded timeout.
+1778518393: New connection from 172.17.0.1:32932 on port 1883.
+1778518393: New client connected from 172.17.0.1:32932 as esp32-smarthome (p4, c1, k15).
+1778518428: New connection from 172.17.0.1:33822 on port 1883.
+1778518428: Client esp32-smarthome [172.17.0.1:32932] disconnected: session taken over.
+1778518428: New client connected from 172.17.0.1:33822 as esp32-smarthome (p4, c1, k15).
+1778518462: Client esp32-smarthome [172.17.0.1:33822] disconnected: connection closed by client.
+1778518470: Client mqttjs_af4cc1ee [172.17.0.1:45768] disconnected: connection closed by client.
+1778518472: New connection from 172.17.0.1:36242 on port 1883.
+1778518472: New client connected from 172.17.0.1:36242 as mqttjs_a0e2e2c3 (p4, c1, k60).
+1778518476: New connection from 172.17.0.1:37812 on port 1883.
+1778518476: New client connected from 172.17.0.1:37812 as esp32-smarthome (p4, c1, k15).
+1778518508: Client esp32-smarthome [172.17.0.1:37812] disconnected: exceeded timeout.
+1778518508: New connection from 172.17.0.1:47410 on port 1883.
+1778518508: New client connected from 172.17.0.1:47410 as esp32-smarthome (p4, c1, k15).
+1778519212: Client esp32-smarthome [172.17.0.1:47410] disconnected: connection closed by client.
+1778519212: New connection from 172.17.0.1:53608 on port 1883.
+1778519212: New client connected from 172.17.0.1:53608 as esp32-smarthome (p4, c1, k15).
+1778519388: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778519508: Client esp32-smarthome [172.17.0.1:53608] disconnected: connection closed by client.
+1778519508: New connection from 172.17.0.1:42830 on port 1883.
+1778519508: New client connected from 172.17.0.1:42830 as esp32-smarthome (p4, c1, k15).
+1778519515: New connection from 172.17.0.1:42836 on port 1883.
+1778519515: Client esp32-smarthome [172.17.0.1:42830] disconnected: session taken over.
+1778519515: New client connected from 172.17.0.1:42836 as esp32-smarthome (p4, c1, k15).
+1778520033: New connection from 172.17.0.1:56890 on port 1883.
+1778520055: Client esp32-smarthome [172.17.0.1:42836] disconnected: session taken over.
+1778520055: New client connected from 172.17.0.1:56890 as esp32-smarthome (p4, c1, k15).
+1778520055: Client esp32-smarthome [172.17.0.1:56890] disconnected: connection closed by client.
+1778520055: New connection from 172.17.0.1:40002 on port 1883.
+1778520055: New client connected from 172.17.0.1:40002 as esp32-smarthome (p4, c1, k15).
+1778520350: New connection from 172.17.0.1:35904 on port 1883.
+1778520350: Client esp32-smarthome [172.17.0.1:40002] disconnected: session taken over.
+1778520350: New client connected from 172.17.0.1:35904 as esp32-smarthome (p4, c1, k15).
+1778520387: Client esp32-smarthome [172.17.0.1:35904] disconnected: exceeded timeout.
+1778520388: New connection from 172.17.0.1:60964 on port 1883.
+1778520388: New client connected from 172.17.0.1:60964 as esp32-smarthome (p4, c1, k15).
+1778520421: Client esp32-smarthome [172.17.0.1:60964] disconnected: exceeded timeout.
+1778520422: New connection from 172.17.0.1:39824 on port 1883.
+1778520422: New client connected from 172.17.0.1:39824 as esp32-smarthome (p4, c1, k15).
+1778520966: Client esp32-smarthome [172.17.0.1:39824] disconnected: exceeded timeout.
+1778520968: New connection from 172.17.0.1:55222 on port 1883.
+1778520968: New client connected from 172.17.0.1:55222 as esp32-smarthome (p4, c1, k15).
+1778520968: Client esp32-smarthome [172.17.0.1:55222] disconnected: connection closed by client.
+1778520971: New connection from 172.17.0.1:55234 on port 1883.
+1778520972: New client connected from 172.17.0.1:55234 as esp32-smarthome (p4, c1, k15).
+1778521189: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778522411: Client esp32-smarthome [172.17.0.1:55234] disconnected: connection closed by client.
+1778522411: New connection from 172.17.0.1:54118 on port 1883.
+1778522411: New client connected from 172.17.0.1:54118 as esp32-smarthome (p4, c1, k15).
+1778522990: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778524791: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778524928: Client esp32-smarthome [172.17.0.1:54118] disconnected: exceeded timeout.
+1778524937: New connection from 172.17.0.1:39060 on port 1883.
+1778524937: New client connected from 172.17.0.1:39060 as esp32-smarthome (p4, c1, k15).
+1778524939: Client esp32-smarthome [172.17.0.1:39060] disconnected: connection closed by client.
+1778524942: New connection from 172.17.0.1:39066 on port 1883.
+1778524943: New client connected from 172.17.0.1:39066 as esp32-smarthome (p4, c1, k15).
+1778524945: Client esp32-smarthome [172.17.0.1:39066] disconnected: connection closed by client.
+1778524948: New connection from 172.17.0.1:60026 on port 1883.
+1778524948: New client connected from 172.17.0.1:60026 as esp32-smarthome (p4, c1, k15).
+1778524953: Client esp32-smarthome [172.17.0.1:60026] disconnected: connection closed by client.
+1778524956: New connection from 172.17.0.1:44408 on port 1883.
+1778524956: New client connected from 172.17.0.1:44408 as esp32-smarthome (p4, c1, k15).
+1778524959: Client esp32-smarthome [172.17.0.1:44408] disconnected: connection closed by client.
+1778524962: New connection from 172.17.0.1:44424 on port 1883.
+1778524962: New client connected from 172.17.0.1:44424 as esp32-smarthome (p4, c1, k15).
+1778524965: Client esp32-smarthome [172.17.0.1:44424] disconnected: connection closed by client.
+1778524968: New connection from 172.17.0.1:38150 on port 1883.
+1778524968: New client connected from 172.17.0.1:38150 as esp32-smarthome (p4, c1, k15).
+1778524971: Client esp32-smarthome [172.17.0.1:38150] disconnected: connection closed by client.
+1778524974: New connection from 172.17.0.1:38158 on port 1883.
+1778524974: New client connected from 172.17.0.1:38158 as esp32-smarthome (p4, c1, k15).
+1778524976: Client esp32-smarthome [172.17.0.1:38158] disconnected: connection closed by client.
+1778524980: New connection from 172.17.0.1:38060 on port 1883.
+1778524980: New client connected from 172.17.0.1:38060 as esp32-smarthome (p4, c1, k15).
+1778524982: Client esp32-smarthome [172.17.0.1:38060] disconnected: connection closed by client.
+1778524986: New connection from 172.17.0.1:34270 on port 1883.
+1778524986: New client connected from 172.17.0.1:34270 as esp32-smarthome (p4, c1, k15).
+1778524989: Client esp32-smarthome [172.17.0.1:34270] disconnected: connection closed by client.
+1778524992: New connection from 172.17.0.1:34274 on port 1883.
+1778524992: New client connected from 172.17.0.1:34274 as esp32-smarthome (p4, c1, k15).
+1778524998: New connection from 172.17.0.1:56846 on port 1883.
+1778524998: Client esp32-smarthome [172.17.0.1:34274] disconnected: session taken over.
+1778524998: New client connected from 172.17.0.1:56846 as esp32-smarthome (p4, c1, k15).
+1778525000: Client esp32-smarthome [172.17.0.1:56846] disconnected: connection closed by client.
+1778525004: New connection from 172.17.0.1:56854 on port 1883.
+1778525004: New client connected from 172.17.0.1:56854 as esp32-smarthome (p4, c1, k15).
+1778525009: New connection from 172.17.0.1:59996 on port 1883.
+1778525009: Client esp32-smarthome [172.17.0.1:56854] disconnected: session taken over.
+1778525009: New client connected from 172.17.0.1:59996 as esp32-smarthome (p4, c1, k15).
+1778525012: Client esp32-smarthome [172.17.0.1:59996] disconnected: connection closed by client.
+1778525015: New connection from 172.17.0.1:58060 on port 1883.
+1778525015: New client connected from 172.17.0.1:58060 as esp32-smarthome (p4, c1, k15).
+1778525018: Client esp32-smarthome [172.17.0.1:58060] disconnected: connection closed by client.
+1778525021: New connection from 172.17.0.1:58072 on port 1883.
+1778525021: New client connected from 172.17.0.1:58072 as esp32-smarthome (p4, c1, k15).
+1778525024: Client esp32-smarthome [172.17.0.1:58072] disconnected: connection closed by client.
+1778525027: New connection from 172.17.0.1:60460 on port 1883.
+1778525027: New client connected from 172.17.0.1:60460 as esp32-smarthome (p4, c1, k15).
+1778525030: Client esp32-smarthome [172.17.0.1:60460] disconnected: connection closed by client.
+1778525033: New connection from 172.17.0.1:60472 on port 1883.
+1778525033: New client connected from 172.17.0.1:60472 as esp32-smarthome (p4, c1, k15).
+1778525035: Client esp32-smarthome [172.17.0.1:60472] disconnected: connection closed by client.
+1778525039: New connection from 172.17.0.1:52088 on port 1883.
+1778525039: New client connected from 172.17.0.1:52088 as esp32-smarthome (p4, c1, k15).
+1778525041: Client esp32-smarthome [172.17.0.1:52088] disconnected: connection closed by client.
+1778525045: New connection from 172.17.0.1:52100 on port 1883.
+1778525045: New client connected from 172.17.0.1:52100 as esp32-smarthome (p4, c1, k15).
+1778525047: Client esp32-smarthome [172.17.0.1:52100] disconnected: connection closed by client.
+1778525051: New connection from 172.17.0.1:41674 on port 1883.
+1778525051: New client connected from 172.17.0.1:41674 as esp32-smarthome (p4, c1, k15).
+1778525053: Client esp32-smarthome [172.17.0.1:41674] disconnected: connection closed by client.
+1778525056: New connection from 172.17.0.1:35280 on port 1883.
+1778525056: New client connected from 172.17.0.1:35280 as esp32-smarthome (p4, c1, k15).
+1778525059: Client esp32-smarthome [172.17.0.1:35280] disconnected: connection closed by client.
+1778525062: New connection from 172.17.0.1:35282 on port 1883.
+1778525062: New client connected from 172.17.0.1:35282 as esp32-smarthome (p4, c1, k15).
+1778525068: New connection from 172.17.0.1:49692 on port 1883.
+1778525068: Client esp32-smarthome [172.17.0.1:35282] disconnected: session taken over.
+1778525068: New client connected from 172.17.0.1:49692 as esp32-smarthome (p4, c1, k15).
+1778525071: Client esp32-smarthome [172.17.0.1:49692] disconnected: connection closed by client.
+1778525074: New connection from 172.17.0.1:49698 on port 1883.
+1778525074: New client connected from 172.17.0.1:49698 as esp32-smarthome (p4, c1, k15).
+1778525097: Client esp32-smarthome [172.17.0.1:49698] disconnected: exceeded timeout.
+1778525108: New connection from 172.17.0.1:33852 on port 1883.
+1778525108: New client connected from 172.17.0.1:33852 as esp32-smarthome (p4, c1, k15).
+1778525111: Client esp32-smarthome [172.17.0.1:33852] disconnected: connection closed by client.
+1778525114: New connection from 172.17.0.1:33866 on port 1883.
+1778525114: New client connected from 172.17.0.1:33866 as esp32-smarthome (p4, c1, k15).
+1778525116: Client esp32-smarthome [172.17.0.1:33866] disconnected: connection closed by client.
+1778525120: New connection from 172.17.0.1:59578 on port 1883.
+1778525120: New client connected from 172.17.0.1:59578 as esp32-smarthome (p4, c1, k15).
+1778525123: Client esp32-smarthome [172.17.0.1:59578] disconnected: connection closed by client.
+1778525126: New connection from 172.17.0.1:47616 on port 1883.
+1778525126: New client connected from 172.17.0.1:47616 as esp32-smarthome (p4, c1, k15).
+1778525128: Client esp32-smarthome [172.17.0.1:47616] disconnected: connection closed by client.
+1778525132: New connection from 172.17.0.1:47628 on port 1883.
+1778525132: New client connected from 172.17.0.1:47628 as esp32-smarthome (p4, c1, k15).
+1778525134: Client esp32-smarthome [172.17.0.1:47628] disconnected: connection closed by client.
+1778525137: New connection from 172.17.0.1:41358 on port 1883.
+1778525137: New client connected from 172.17.0.1:41358 as esp32-smarthome (p4, c1, k15).
+1778525140: Client esp32-smarthome [172.17.0.1:41358] disconnected: connection closed by client.
+1778525143: New connection from 172.17.0.1:41364 on port 1883.
+1778525143: New client connected from 172.17.0.1:41364 as esp32-smarthome (p4, c1, k15).
+1778525145: Client esp32-smarthome [172.17.0.1:41364] disconnected: connection closed by client.
+1778525149: New connection from 172.17.0.1:53386 on port 1883.
+1778525149: New client connected from 172.17.0.1:53386 as esp32-smarthome (p4, c1, k15).
+1778525152: Client esp32-smarthome [172.17.0.1:53386] disconnected: connection closed by client.
+1778525155: New connection from 172.17.0.1:55764 on port 1883.
+1778525155: New client connected from 172.17.0.1:55764 as esp32-smarthome (p4, c1, k15).
+1778525158: Client esp32-smarthome [172.17.0.1:55764] disconnected: connection closed by client.
+1778525161: New connection from 172.17.0.1:55780 on port 1883.
+1778525161: New client connected from 172.17.0.1:55780 as esp32-smarthome (p4, c1, k15).
+1778525164: Client esp32-smarthome [172.17.0.1:55780] disconnected: connection closed by client.
+1778525167: New connection from 172.17.0.1:56348 on port 1883.
+1778525167: New client connected from 172.17.0.1:56348 as esp32-smarthome (p4, c1, k15).
+1778525170: Client esp32-smarthome [172.17.0.1:56348] disconnected: connection closed by client.
+1778525173: New connection from 172.17.0.1:56356 on port 1883.
+1778525173: New client connected from 172.17.0.1:56356 as esp32-smarthome (p4, c1, k15).
+1778525176: Client esp32-smarthome [172.17.0.1:56356] disconnected: connection closed by client.
+1778525179: New connection from 172.17.0.1:44082 on port 1883.
+1778525179: New client connected from 172.17.0.1:44082 as esp32-smarthome (p4, c1, k15).
+1778525181: Client esp32-smarthome [172.17.0.1:44082] disconnected: connection closed by client.
+1778525185: New connection from 172.17.0.1:44088 on port 1883.
+1778525185: New client connected from 172.17.0.1:44088 as esp32-smarthome (p4, c1, k15).
+1778525187: Client esp32-smarthome [172.17.0.1:44088] disconnected: connection closed by client.
+1778525191: New connection from 172.17.0.1:54964 on port 1883.
+1778525191: New client connected from 172.17.0.1:54964 as esp32-smarthome (p4, c1, k15).
+1778525193: Client esp32-smarthome [172.17.0.1:54964] disconnected: connection closed by client.
+1778525197: New connection from 172.17.0.1:49708 on port 1883.
+1778525197: New client connected from 172.17.0.1:49708 as esp32-smarthome (p4, c1, k15).
+1778525199: Client esp32-smarthome [172.17.0.1:49708] disconnected: connection closed by client.
+1778525202: New connection from 172.17.0.1:49718 on port 1883.
+1778525202: New client connected from 172.17.0.1:49718 as esp32-smarthome (p4, c1, k15).
+1778525208: New connection from 172.17.0.1:58926 on port 1883.
+1778525208: Client esp32-smarthome [172.17.0.1:49718] disconnected: session taken over.
+1778525208: New client connected from 172.17.0.1:58926 as esp32-smarthome (p4, c1, k15).
+1778525214: New connection from 172.17.0.1:58938 on port 1883.
+1778525214: Client esp32-smarthome [172.17.0.1:58926] disconnected: session taken over.
+1778525214: New client connected from 172.17.0.1:58938 as esp32-smarthome (p4, c1, k15).
+1778525220: New connection from 172.17.0.1:53276 on port 1883.
+1778525220: Client esp32-smarthome [172.17.0.1:58938] disconnected: session taken over.
+1778525220: New client connected from 172.17.0.1:53276 as esp32-smarthome (p4, c1, k15).
+1778525222: Client esp32-smarthome [172.17.0.1:53276] disconnected: connection closed by client.
+1778525226: New connection from 172.17.0.1:49274 on port 1883.
+1778525226: New client connected from 172.17.0.1:49274 as esp32-smarthome (p4, c1, k15).
+1778525231: New connection from 172.17.0.1:49288 on port 1883.
+1778525232: Client esp32-smarthome [172.17.0.1:49274] disconnected: session taken over.
+1778525232: New client connected from 172.17.0.1:49288 as esp32-smarthome (p4, c1, k15).
+1778525237: New connection from 172.17.0.1:47298 on port 1883.
+1778525237: Client esp32-smarthome [172.17.0.1:49288] disconnected: session taken over.
+1778525237: New client connected from 172.17.0.1:47298 as esp32-smarthome (p4, c1, k15).
+1778525243: New connection from 172.17.0.1:47302 on port 1883.
+1778525243: Client esp32-smarthome [172.17.0.1:47298] disconnected: session taken over.
+1778525243: New client connected from 172.17.0.1:47302 as esp32-smarthome (p4, c1, k15).
+1778525249: New connection from 172.17.0.1:33934 on port 1883.
+1778525249: Client esp32-smarthome [172.17.0.1:47302] disconnected: session taken over.
+1778525249: New client connected from 172.17.0.1:33934 as esp32-smarthome (p4, c1, k15).
+1778525255: New connection from 172.17.0.1:33942 on port 1883.
+1778525255: Client esp32-smarthome [172.17.0.1:33934] disconnected: session taken over.
+1778525255: New client connected from 172.17.0.1:33942 as esp32-smarthome (p4, c1, k15).
+1778525257: Client esp32-smarthome [172.17.0.1:33942] disconnected: connection closed by client.
+1778525261: New connection from 172.17.0.1:46874 on port 1883.
+1778525261: New client connected from 172.17.0.1:46874 as esp32-smarthome (p4, c1, k15).
+1778525263: Client esp32-smarthome [172.17.0.1:46874] disconnected: connection closed by client.
+1778525267: New connection from 172.17.0.1:40474 on port 1883.
+1778525267: New client connected from 172.17.0.1:40474 as esp32-smarthome (p4, c1, k15).
+1778525269: Client esp32-smarthome [172.17.0.1:40474] disconnected: connection closed by client.
+1778525273: New connection from 172.17.0.1:40490 on port 1883.
+1778525273: New client connected from 172.17.0.1:40490 as esp32-smarthome (p4, c1, k15).
+1778525292: Client esp32-smarthome [172.17.0.1:40490] disconnected: connection closed by client.
+1778526595: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778527847: Client mqttjs_a0e2e2c3 [172.17.0.1:36242] disconnected: connection closed by client.
+1778527960: mosquitto version 2.1.2 terminating
+1778527960: Saving in-memory database to /mosquitto/data//mosquitto.db.

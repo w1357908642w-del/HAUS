@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>HAUS Smart Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>HAUS Smart Home</h1>
+
+  <nav id="nav" class="hidden">
+    <button onclick="showPage('dashboard')">Главная</button>
+    <button onclick="showPage('tables')">Таблицы</button>
+    <button onclick="logout()">Выйти</button>
+  </nav>
+</header>
+
+<main>
+  <section id="loginPage" class="page active">
+    <div class="card login-card">
+      <h2>Вход</h2>
+
+      <label>Логин</label>
+      <input id="loginInput" type="text" />
+
+      <label>Пароль</label>
+      <input id="passwordInput" type="password" />
+
+      <button onclick="login()">Войти</button>
+
+      <p id="loginError" class="error"></p>
+    </div>
+  </section>
+
+  <section id="dashboard" class="page">
+    <h2>Главная</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Сенсоры</h3>
+        <p>ESP32: <b id="espOnline">-</b></p>
+        <p>Последняя активность: <b id="lastSeen">-</b></p>
+        <p>Температура: <b id="temperature">-</b> °C</p>
+        <p>Влажность воздуха: <b id="humidity">-</b> %</p>
+        <p>Давление: <b id="pressure">-</b></p>
+        <p>Влажность почвы: <b id="soilPercent">-</b> %</p>
+        <p>Время RTC: <b id="rtcTime">-</b></p>
+      </div>
+
+      <div class="card">
+        <h3>Добавить устройство</h3>
+
+        <label>ID</label>
+        <input id="deviceId" placeholder="watering_1" />
+
+        <label>Название</label>
+        <input id="deviceName" placeholder="Полив фикуса" />
+
+        <label>Тип</label>
+        <select id="deviceType" onchange="toggleDeviceFields()">
+          <option value="GPIO">GPIO</option>
+          <option value="WIFI_RELAY">Wi-Fi реле</option>
+        </select>
+
+        <div id="gpioFields">
+          <label>GPIO пин</label>
+          <input id="devicePin" type="number" placeholder="25" />
+
+          <label>
+            <input id="deviceActiveHigh" type="checkbox" checked />
+            Active HIGH
+          </label>
+        </div>
+
+        <div id="wifiFields" class="hidden">
+          <label>IP реле</label>
+          <input id="deviceIp" placeholder="192.168.0.103" />
+        </div>
+
+        <label>Режим</label>
+        <select id="deviceMode">
+          <option>AUTO</option>
+          <option>MANUAL</option>
+        </select>
+
+        <label>Включать в</label>
+        <input id="deviceTurnOn" type="time" />
+
+        <label>Выключать в</label>
+        <input id="deviceTurnOff" type="time" />
+
+        <label>Раз в сколько дней</label>
+        <input id="deviceRepeat" type="number" min="1" value="1" />
+
+        <button onclick="createDevice()">Добавить</button>
+      </div>
+    </div>
+
+    <h3>Устройства</h3>
+    <div id="devicesGrid" class="grid"></div>
+  </section>
+
+  <section id="tables" class="page">
+    <h2>Таблицы</h2>
+
+    <div class="card">
+      <h3>Данные сенсоров</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Время</th>
+            <th>Темп.</th>
+            <th>Влажн.</th>
+            <th>Давление</th>
+            <th>Почва %</th>
+            <th>RTC</th>
+          </tr>
+        </thead>
+        <tbody id="sensorTable"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Управляемые устройства</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Состояние</th>
+            <th>Вкл.</th>
+            <th>Выкл.</th>
+            <th>Раз в дней</th>
+            <th>Обновлено</th>
+          </tr>
+        </thead>
+        <tbody id="deviceTable"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
