@@ -43,7 +43,9 @@
         <p>Устройство: <b id="espId">-</b></p>
         <p>Статус: <b id="espOnline">-</b></p>
         <p>Последняя активность: <b id="lastSeen">-</b></p>
-        <button onclick="requestDeviceList()">Обновить список устройств</button>
+
+        <button onclick="requestDeviceList()">Обновить устройства</button>
+        <button onclick="requestSoilList()">Обновить датчики почвы</button>
       </div>
 
       <div class="card">
@@ -51,7 +53,6 @@
         <p>Температура: <b id="temperature">-</b> °C</p>
         <p>Влажность воздуха: <b id="humidity">-</b> %</p>
         <p>Давление: <b id="pressure">-</b></p>
-        <p>Влажность почвы: <b id="soilPercent">-</b> %</p>
         <p>Время RTC: <b id="rtcTime">-</b></p>
       </div>
 
@@ -59,10 +60,10 @@
         <h3>Добавить / редактировать устройство</h3>
 
         <label>ID</label>
-        <input id="deviceId" placeholder="watering_1" />
+        <input id="deviceId" placeholder="light_1" />
 
         <label>Название</label>
-        <input id="deviceName" placeholder="Полив фикуса" />
+        <input id="deviceName" placeholder="Свет" />
 
         <label>Тип</label>
         <select id="deviceType" onchange="toggleDeviceFields()">
@@ -103,10 +104,42 @@
         <button onclick="saveDevice()">Сохранить устройство</button>
         <button onclick="clearDeviceForm()">Очистить форму</button>
       </div>
+
+      <div class="card">
+        <h3>Добавить / редактировать датчик почвы</h3>
+
+        <label>ID</label>
+        <input id="soilId" placeholder="soil_1" />
+
+        <label>Название</label>
+        <input id="soilName" placeholder="Фикус" />
+
+        <label>ADC1 пин</label>
+        <select id="soilPin">
+          <option value="32">GPIO 32</option>
+          <option value="33">GPIO 33</option>
+          <option value="34">GPIO 34</option>
+          <option value="35">GPIO 35</option>
+          <option value="36">GPIO 36</option>
+          <option value="39">GPIO 39</option>
+        </select>
+
+        <label>Dry value</label>
+        <input id="soilDry" type="number" value="3200" />
+
+        <label>Wet value</label>
+        <input id="soilWet" type="number" value="1200" />
+
+        <button onclick="saveSoilSensor()">Сохранить датчик</button>
+        <button onclick="clearSoilForm()">Очистить форму</button>
+      </div>
     </div>
 
     <h3>Устройства</h3>
     <div id="devicesGrid" class="grid"></div>
+
+    <h3>Датчики почвы</h3>
+    <div id="soilSensorsGrid" class="grid"></div>
   </section>
 
   <section id="tables" class="page">
@@ -121,7 +154,6 @@
             <th>Темп.</th>
             <th>Влажн.</th>
             <th>Давление</th>
-            <th>Почва %</th>
             <th>RTC</th>
           </tr>
         </thead>
@@ -145,6 +177,25 @@
           </tr>
         </thead>
         <tbody id="deviceTable"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Датчики почвы</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th>ID</th>
+            <th>Пин</th>
+            <th>RAW</th>
+            <th>%</th>
+            <th>Dry</th>
+            <th>Wet</th>
+            <th>Обновлено</th>
+          </tr>
+        </thead>
+        <tbody id="soilTable"></tbody>
       </table>
     </div>
   </section>

@@ -86,11 +86,11 @@ async function loadDashboard() {
     temperature.textContent = data.sensor.temperature ?? "-";
     humidity.textContent = data.sensor.humidity ?? "-";
     pressure.textContent = data.sensor.pressure ?? "-";
-    soilPercent.textContent = data.sensor.soil_percent ?? "-";
     rtcTime.textContent = data.sensor.rtc_time ?? "-";
   }
 
   renderDevices(data.devices || []);
+  renderSoilSensors(data.soil_sensors || []);
 }
 
 function renderDevices(devices) {
@@ -159,8 +159,8 @@ function toggleDeviceFields() {
 
 function collectDeviceForm() {
   const device = {
-    id: deviceId.value,
-    name: deviceName.value,
+    id: deviceId.value.trim(),
+    name: deviceName.value.trim(),
     type: deviceType.value,
     state: "OFF",
     mode: deviceMode.value,
@@ -176,7 +176,7 @@ function collectDeviceForm() {
   }
 
   if (device.type === "WIFI_RELAY") {
-    device.ip = deviceIp.value;
+    device.ip = deviceIp.value.trim();
   }
 
   return device;
@@ -184,6 +184,11 @@ function collectDeviceForm() {
 
 async function saveDevice() {
   const device = collectDeviceForm();
+
+  if (!device.id || !device.name) {
+    alert("Заполни ID и название устройства");
+    return;
+  }
 
   const existing = [...document.querySelectorAll("#devicesGrid .card")]
     .some(card => card.innerText.includes(`ID: ${device.id}`));
@@ -194,8 +199,10 @@ async function saveDevice() {
     body: JSON.stringify(device),
   });
 
-  await requestDeviceList();
-  await loadDashboard();
+  setTimeout(async () => {
+    await requestDeviceList();
+    await loadDashboard();
+  }, 700);
 }
 
 async function setDeviceState(id, state) {
@@ -205,7 +212,7 @@ async function setDeviceState(id, state) {
     body: JSON.stringify({ state }),
   });
 
-  setTimeout(loadDashboard, 500);
+  setTimeout(loadDashboard, 700);
 }
 
 async function deleteDevice(id) {
@@ -214,7 +221,7 @@ async function deleteDevice(id) {
     headers: headers(),
   });
 
-  setTimeout(loadDashboard, 500);
+  setTimeout(loadDashboard, 700);
 }
 
 async function requestDeviceList() {
@@ -222,6 +229,100 @@ async function requestDeviceList() {
     method: "POST",
     headers: headers(),
   });
+
+  setTimeout(loadDashboard, 700);
+}
+
+function renderSoilSensors(sensors) {
+  soilSensorsGrid.innerHTML = sensors.map(sensor => `
+    <div class="card">
+      <h3>${sensor.name}</h3>
+
+      <p>ID: <b>${sensor.sensor_id}</b></p>
+      <p>Пин: <b>${sensor.pin}</b></p>
+      <p>RAW: <b>${sensor.raw_value ?? "-"}</b></p>
+      <p>Влажность: <b>${sensor.percent_value ?? "-"}</b> %</p>
+      <p>Dry: <b>${sensor.dry_value ?? "-"}</b></p>
+      <p>Wet: <b>${sensor.wet_value ?? "-"}</b></p>
+
+      <button onclick='fillSoilForm(${JSON.stringify(sensor)})'>Редактировать</button>
+      <button class="delete-btn" onclick="deleteSoilSensor('${sensor.sensor_id}')">Удалить</button>
+    </div>
+  `).join("");
+}
+
+function fillSoilForm(sensor) {
+  soilId.value = sensor.sensor_id;
+  soilName.value = sensor.name;
+  soilPin.value = sensor.pin;
+  soilDry.value = sensor.dry_value ?? 3200;
+  soilWet.value = sensor.wet_value ?? 1200;
+}
+
+function clearSoilForm() {
+  soilId.value = "";
+  soilName.value = "";
+  soilPin.value = "34";
+  soilDry.value = 3200;
+  soilWet.value = 1200;
+}
+
+function collectSoilForm() {
+  return {
+    id: soilId.value.trim(),
+    name: soilName.value.trim(),
+    pin: Number(soilPin.value),
+    dryValue: Number(soilDry.value),
+    wetValue: Number(soilWet.value),
+  };
+}
+
+async function saveSoilSensor() {
+  const sensor = collectSoilForm();
+
+  if (!sensor.id || !sensor.name) {
+    alert("Заполни ID и название датчика");
+    return;
+  }
+
+  const allowedPins = [32, 33, 34, 35, 36, 39];
+
+  if (!allowedPins.includes(sensor.pin)) {
+    alert("Для датчика почвы можно использовать только ADC1: 32, 33, 34, 35, 36, 39");
+    return;
+  }
+
+  const existing = [...document.querySelectorAll("#soilSensorsGrid .card")]
+    .some(card => card.innerText.includes(`ID: ${sensor.id}`));
+
+  await fetch(existing ? `${API}/soil/${sensor.id}` : `${API}/soil`, {
+    method: existing ? "PUT" : "POST",
+    headers: headers(),
+    body: JSON.stringify(sensor),
+  });
+
+  setTimeout(async () => {
+    await requestSoilList();
+    await loadDashboard();
+  }, 700);
+}
+
+async function deleteSoilSensor(id) {
+  await fetch(`${API}/soil/${id}`, {
+    method: "DELETE",
+    headers: headers(),
+  });
+
+  setTimeout(loadDashboard, 700);
+}
+
+async function requestSoilList() {
+  await fetch(`${API}/soil/request-list`, {
+    method: "POST",
+    headers: headers(),
+  });
+
+  setTimeout(loadDashboard, 700);
 }
 
 async function loadTables() {
@@ -237,7 +338,6 @@ async function loadTables() {
       <td>${row.temperature ?? "-"}</td>
       <td>${row.humidity ?? "-"}</td>
       <td>${row.pressure ?? "-"}</td>
-      <td>${row.soil_percent ?? "-"}</td>
       <td>${row.rtc_time ?? "-"}</td>
     </tr>
   `).join("");
@@ -257,6 +357,25 @@ async function loadTables() {
       <td>${row.turn_on_time ?? "-"}</td>
       <td>${row.turn_off_time ?? "-"}</td>
       <td>${row.repeat_every_days}</td>
+      <td>${formatDate(row.updated_at)}</td>
+    </tr>
+  `).join("");
+
+  const soilRes = await fetch(`${API}/soil`, {
+    headers: headers(),
+  });
+
+  const soil = await soilRes.json();
+
+  soilTable.innerHTML = soil.map(row => `
+    <tr>
+      <td>${row.name}</td>
+      <td>${row.sensor_id}</td>
+      <td>${row.pin}</td>
+      <td>${row.raw_value ?? "-"}</td>
+      <td>${row.percent_value ?? "-"}</td>
+      <td>${row.dry_value ?? "-"}</td>
+      <td>${row.wet_value ?? "-"}</td>
       <td>${formatDate(row.updated_at)}</td>
     </tr>
   `).join("");

@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS managed_devices;
 DROP TABLE IF EXISTS sensor_data;
+DROP TABLE IF EXISTS soil_sensors;
 
 CREATE TABLE sensor_data (
   id SERIAL PRIMARY KEY,
@@ -32,4 +33,20 @@ CREATE TABLE managed_devices (
   updated_at TIMESTAMP DEFAULT NOW(),
 
   UNIQUE(device_login, esp_device_id, managed_id)
+);
+
+CREATE TABLE soil_sensors (
+  id SERIAL PRIMARY KEY,
+  device_login TEXT NOT NULL,
+  esp_device_id TEXT NOT NULL,
+  sensor_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  pin INTEGER NOT NULL,
+  raw_value INTEGER,
+  percent_value INTEGER,
+  dry_value INTEGER,
+  wet_value INTEGER,
+  updated_at TIMESTAMP DEFAULT NOW(),
+
+  UNIQUE(device_login, esp_device_id, sensor_id)
 );

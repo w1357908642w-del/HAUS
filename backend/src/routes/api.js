@@ -18,6 +18,16 @@ router.post("/login", (req, res) => {
 router.use(authMiddleware);
 
 router.get("/dashboard", async (req, res) => {
+  const soilSensors = await db.query(
+    `
+    SELECT *
+    FROM soil_sensors
+    WHERE device_login = $1
+    ORDER BY sensor_id ASC
+    `,
+    [req.login]
+  );
+
   const sensor = await db.query(
     `
     SELECT *
@@ -34,7 +44,7 @@ router.get("/dashboard", async (req, res) => {
     SELECT *
     FROM managed_devices
     WHERE device_login = $1
-    ORDER BY updated_at DESC
+    ORDER BY managed_id ASC
     `,
     [req.login]
   );
@@ -47,6 +57,7 @@ router.get("/dashboard", async (req, res) => {
     esp_device_id: status.espDeviceId,
     sensor: sensor.rows[0] || null,
     devices: devices.rows,
+    soil_sensors: soilSensors.rows,
   });
 });
 
@@ -71,7 +82,7 @@ router.get("/devices", async (req, res) => {
     SELECT *
     FROM managed_devices
     WHERE device_login = $1
-    ORDER BY updated_at DESC
+    ORDER BY managed_id ASC
     `,
     [req.login]
   );
@@ -140,5 +151,70 @@ router.post("/devices/:id/state", (req, res) => {
 
   res.json({ ok: true });
 });
+
+router.get("/soil", async (req, res) => {
+  const result = await db.query(
+    `
+    SELECT *
+    FROM soil_sensors
+    WHERE device_login = $1
+    ORDER BY sensor_id ASC
+    `,
+    [req.login]
+  );
+
+  res.json(result.rows);
+});
+
+router.post("/soil/request-list", (req, res) => {
+  if (!isEspOnline(req.login)) {
+    return res.status(400).json({ error: "ESP32 offline" });
+  }
+
+  publishToEsp(req.login, "home/esp32/soil/request-list");
+
+  res.json({ ok: true });
+});
+
+router.post("/soil", (req, res) => {
+  if (!isEspOnline(req.login)) {
+    return res.status(400).json({ error: "ESP32 offline" });
+  }
+
+  publishToEsp(req.login, "home/esp32/soil/create", {
+    sensor: req.body,
+  });
+
+  res.json({ ok: true });
+});
+
+router.put("/soil/:id", (req, res) => {
+  if (!isEspOnline(req.login)) {
+    return res.status(400).json({ error: "ESP32 offline" });
+  }
+
+  publishToEsp(req.login, "home/esp32/soil/update", {
+    sensor: {
+      ...req.body,
+      id: req.params.id,
+    },
+  });
+
+  res.json({ ok: true });
+});
+
+router.delete("/soil/:id", (req, res) => {
+  if (!isEspOnline(req.login)) {
+    return res.status(400).json({ error: "ESP32 offline" });
+  }
+
+  publishToEsp(req.login, "home/esp32/soil/delete", {
+    id: req.params.id,
+  });
+
+  res.json({ ok: true });
+});
+
+
 
 module.exports = router;

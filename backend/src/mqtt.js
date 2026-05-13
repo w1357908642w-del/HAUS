@@ -41,15 +41,16 @@ client.on("connect", () => {
   client.subscribe("home/esp32/sensors");
   client.subscribe("home/esp32/devices/list");
   client.subscribe("home/esp32/devices/state");
+  client.subscribe("home/esp32/soil/list");
+  client.subscribe("home/esp32/soil/state");
 });
+
 
 client.on("message", async (topic, message) => {
   try {
     const payload = message.toString();
 
-    if (topic === "home/esp32/sensors") {
-      console.log(topic, payload);
-    }
+    console.log("MQTT RAW:", topic, payload);
 
     let data;
 
@@ -99,6 +100,15 @@ client.on("message", async (topic, message) => {
     if (topic === "home/esp32/devices/list") {
       const devices = data.devices || [];
 
+      await db.query(
+        `
+        DELETE FROM managed_devices
+        WHERE device_login = $1
+          AND esp_device_id = $2
+        `,
+        [login, espDeviceId]
+      );
+
       for (const device of devices) {
         await upsertDevice(login, espDeviceId, device);
       }
@@ -107,11 +117,71 @@ client.on("message", async (topic, message) => {
     if (topic === "home/esp32/devices/state") {
       await upsertDevice(login, espDeviceId, data.deviceData);
     }
+    if (topic === "home/esp32/soil/list") {
+      const sensors = data.sensors || [];
+
+      await db.query(
+        `
+        DELETE FROM soil_sensors
+        WHERE device_login = $1
+        AND esp_device_id = $2
+        `,
+        [login, espDeviceId]
+      );
+
+      for (const sensor of sensors) {
+        await upsertSoilSensor(login, espDeviceId, sensor);
+      }
+    }
+
+    if (topic === "home/esp32/soil/state") {
+      await upsertSoilSensor(login, espDeviceId, data.sensor);
+    }
   } catch (error) {
     console.error("MQTT error:", error.message);
   }
 });
+async function upsertSoilSensor(login, espDeviceId, sensor) {
+  if (!sensor?.id) return;
 
+  await db.query(
+    `
+    INSERT INTO soil_sensors(
+      device_login,
+      esp_device_id,
+      sensor_id,
+      name,
+      pin,
+      raw_value,
+      percent_value,
+      dry_value,
+      wet_value,
+      updated_at
+    )
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NOW())
+    ON CONFLICT(device_login, esp_device_id, sensor_id)
+    DO UPDATE SET
+      name = $4,
+      pin = $5,
+      raw_value = $6,
+      percent_value = $7,
+      dry_value = $8,
+      wet_value = $9,
+      updated_at = NOW()
+    `,
+    [
+      login,
+      espDeviceId,
+      sensor.id,
+      sensor.name,
+      sensor.pin,
+      sensor.rawValue ?? null,
+      sensor.percentValue ?? null,
+      sensor.dryValue ?? null,
+      sensor.wetValue ?? null,
+    ]
+  );
+}
 async function upsertDevice(login, espDeviceId, device) {
   if (!device?.id) return;
 
@@ -172,16 +242,17 @@ async function upsertDevice(login, espDeviceId, device) {
 function publishToEsp(login, topic, payload = {}) {
   const credentials = JSON.parse(process.env.DEVICE_CREDENTIALS || "{}");
 
-  client.publish(
-    topic,
-    JSON.stringify({
-      auth: {
-        login,
-        password: credentials[login],
-      },
-      ...payload,
-    })
-  );
+  const message = JSON.stringify({
+    auth: {
+      login,
+      password: credentials[login],
+    },
+    ...payload,
+  });
+
+  console.log("MQTT SEND:", topic, message);
+
+  client.publish(topic, message, { qos: 1 });
 }
 
 module.exports = {
