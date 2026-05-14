@@ -326,59 +326,150 @@ async function requestSoilList() {
 }
 
 async function loadTables() {
-  const sensorsRes = await fetch(`${API}/sensors`, {
-    headers: headers(),
-  });
+  const container = document.getElementById("tables");
 
-  const sensors = await sensorsRes.json();
+  container.innerHTML = `
+    <h2>История</h2>
 
-  sensorTable.innerHTML = sensors.map(row => `
+    <div class="tabs">
+      <button onclick="loadHistoryTab('soil')">Почва</button>
+      <button onclick="loadHistoryTab('devices')">Устройства</button>
+      <button onclick="loadHistoryTab('climate')">Климат</button>
+    </div>
+
+    <div id="historyContent"></div>
+  `;
+
+  await loadHistoryTab("soil");
+}
+
+async function loadHistoryTab(type) {
+  const content = document.getElementById("historyContent");
+
+  if (type === "soil") {
+    const res = await fetch(`${API}/history/soil`, { headers: headers() });
+    const sensors = await res.json();
+
+    content.innerHTML = `
+      <div class="history-layout">
+        <div class="history-list">
+          ${sensors.map(sensor => `
+            <button class="history-item" onclick="loadSoilHistory(${sensor.id}, '${sensor.name}', '${sensor.sensor_id}')">
+              <b>${sensor.name}</b>
+              <span>ID: ${sensor.sensor_id}</span>
+              <small>Последнее: ${sensor.percent_value ?? "-"}%</small>
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="history-panel">
+          <h3>Выберите датчик почвы</h3>
+          <table>
+            <tbody id="historyRows"></tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  if (type === "devices") {
+    const res = await fetch(`${API}/history/devices`, { headers: headers() });
+    const devices = await res.json();
+
+    content.innerHTML = `
+      <div class="history-layout">
+        <div class="history-list">
+          ${devices.map(device => `
+            <button class="history-item" onclick="loadDeviceHistory(${device.id}, '${device.name}', '${device.managed_id}')">
+              <b>${device.name}</b>
+              <span>ID: ${device.managed_id}</span>
+              <small>Состояние: ${device.state}</small>
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="history-panel">
+          <h3>Выберите устройство</h3>
+          <table>
+            <tbody id="historyRows"></tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  if (type === "climate") {
+    const res = await fetch(`${API}/history/climate`, { headers: headers() });
+    const rows = await res.json();
+
+    content.innerHTML = `
+      <div class="history-panel">
+        <h3>История климата</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Температура</th>
+              <th>Влажность</th>
+              <th>Давление</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(row => `
+              <tr>
+                <td>${formatDate(row.created_at)}</td>
+                <td>${row.temperature ?? "-"}</td>
+                <td>${row.humidity ?? "-"}</td>
+                <td>${row.pressure ?? "-"}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+}
+
+async function loadSoilHistory(id, name, sensorId) {
+  const res = await fetch(`${API}/history/soil/${id}`, { headers: headers() });
+  const rows = await res.json();
+
+  document.querySelector(".history-panel h3").textContent = `${name} / ${sensorId}`;
+
+  document.getElementById("historyRows").innerHTML = `
     <tr>
-      <td>${formatDate(row.created_at)}</td>
-      <td>${row.temperature ?? "-"}</td>
-      <td>${row.humidity ?? "-"}</td>
-      <td>${row.pressure ?? "-"}</td>
-      <td>${row.rtc_time ?? "-"}</td>
+      <th>Время</th>
+      <th>Влажность</th>
+      <th>RAW</th>
     </tr>
-  `).join("");
+    ${rows.map(row => `
+      <tr>
+        <td>${formatDate(row.created_at)}</td>
+        <td>${row.percent_value ?? "-"}%</td>
+        <td>${row.raw_value ?? "-"}</td>
+      </tr>
+    `).join("")}
+  `;
+}
 
-  const devicesRes = await fetch(`${API}/devices`, {
-    headers: headers(),
-  });
+async function loadDeviceHistory(id, name, managedId) {
+  const res = await fetch(`${API}/history/devices/${id}`, { headers: headers() });
+  const rows = await res.json();
 
-  const devices = await devicesRes.json();
+  document.querySelector(".history-panel h3").textContent = `${name} / ${managedId}`;
 
-  deviceTable.innerHTML = devices.map(row => `
+  document.getElementById("historyRows").innerHTML = `
     <tr>
-      <td>${row.name}</td>
-      <td>${row.managed_id}</td>
-      <td>${row.type}</td>
-      <td>${row.state}</td>
-      <td>${row.turn_on_time ?? "-"}</td>
-      <td>${row.turn_off_time ?? "-"}</td>
-      <td>${row.repeat_every_days}</td>
-      <td>${formatDate(row.updated_at)}</td>
+      <th>Время</th>
+      <th>Событие</th>
     </tr>
-  `).join("");
-
-  const soilRes = await fetch(`${API}/soil`, {
-    headers: headers(),
-  });
-
-  const soil = await soilRes.json();
-
-  soilTable.innerHTML = soil.map(row => `
-    <tr>
-      <td>${row.name}</td>
-      <td>${row.sensor_id}</td>
-      <td>${row.pin}</td>
-      <td>${row.raw_value ?? "-"}</td>
-      <td>${row.percent_value ?? "-"}</td>
-      <td>${row.dry_value ?? "-"}</td>
-      <td>${row.wet_value ?? "-"}</td>
-      <td>${formatDate(row.updated_at)}</td>
-    </tr>
-  `).join("");
+    ${rows.map(row => `
+      <tr>
+        <td>${formatDate(row.created_at)}</td>
+        <td>${row.previous_state || "—"} → ${row.new_state}</td>
+      </tr>
+    `).join("")}
+  `;
 }
 
 if (token()) {

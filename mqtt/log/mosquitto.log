@@ -4676,3 +4676,314 @@
 1778684236: Client esp32-2 [172.17.0.1:55344] disconnected: exceeded timeout.
 1778684249: mosquitto version 2.1.2 terminating
 1778684249: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778684251: mosquitto version 2.1.2 starting
+1778684251: Config loaded from /mosquitto/config/mosquitto.conf.
+1778684251: Bridge support available.
+1778684251: Persistence support available.
+1778684251: TLS support available.
+1778684251: TLS-PSK support available.
+1778684251: Websockets support available.
+1778684251: Opening ipv4 listen socket on port 1883.
+1778684251: Opening ipv6 listen socket on port 1883.
+1778684251: mosquitto version 2.1.2 running
+1778684264: New connection from 172.17.0.1:58542 on port 1883.
+1778684264: New client connected from 172.17.0.1:58542 as mqttjs_eaee6731 (p4, c1, k60).
+1778684355: New connection from 172.17.0.1:44234 on port 1883.
+1778684355: New client connected from 172.17.0.1:44234 as esp32-2 (p4, c1, k15).
+1778684413: Client esp32-2 [172.17.0.1:44234] disconnected: exceeded timeout.
+1778684426: New connection from 172.17.0.1:32770 on port 1883.
+1778684426: New client connected from 172.17.0.1:32770 as esp32-2 (p4, c1, k15).
+1778684457: New connection from 172.17.0.1:59762 on port 1883.
+1778684457: Client esp32-2 [172.17.0.1:32770] disconnected: session taken over.
+1778684457: New client connected from 172.17.0.1:59762 as esp32-2 (p4, c1, k15).
+1778684525: New connection from 172.17.0.1:45130 on port 1883.
+1778684525: Client esp32-2 [172.17.0.1:59762] disconnected: session taken over.
+1778684525: New client connected from 172.17.0.1:45130 as esp32-2 (p4, c1, k15).
+1778684568: Client esp32-2 [172.17.0.1:45130] disconnected: exceeded timeout.
+1778684610: New connection from 172.17.0.1:49992 on port 1883.
+1778684610: New client connected from 172.17.0.1:49992 as esp32-2 (p4, c1, k15).
+1778684678: Client esp32-2 [172.17.0.1:49992] disconnected: exceeded timeout.
+1778685928: New connection from 172.17.0.1:36008 on port 1883.
+1778685928: New client connected from 172.17.0.1:36008 as esp32-2 (p4, c1, k15).
+1778686021: Client esp32-2 [172.17.0.1:36008] disconnected: exceeded timeout.
+1778686052: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778687852: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778689653: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778691320: New connection from 172.17.0.1:59634 on port 1883.
+1778691320: New client connected from 172.17.0.1:59634 as esp32-2 (p4, c1, k15).
+1778691454: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778692227: Client esp32-2 [172.17.0.1:59634] disconnected: exceeded timeout.
+1778692242: New connection from 172.17.0.1:38490 on port 1883.
+1778692242: New client connected from 172.17.0.1:38490 as esp32-2 (p4, c1, k15).
+1778692265: Client esp32-2 [172.17.0.1:38490] disconnected: exceeded timeout.
+1778692265: New connection from 172.17.0.1:51092 on port 1883.
+1778692265: New client connected from 172.17.0.1:51092 as esp32-2 (p4, c1, k15).
+1778692288: Client esp32-2 [172.17.0.1:51092] disconnected: exceeded timeout.
+1778692288: New connection from 172.17.0.1:55796 on port 1883.
+1778692288: New client connected from 172.17.0.1:55796 as esp32-2 (p4, c1, k15).
+1778692312: Client esp32-2 [172.17.0.1:55796] disconnected: exceeded timeout.
+1778692312: New connection from 172.17.0.1:39422 on port 1883.
+1778692312: New client connected from 172.17.0.1:39422 as esp32-2 (p4, c1, k15).
+1778692335: Client esp32-2 [172.17.0.1:39422] disconnected: exceeded timeout.
+1778692336: New connection from 172.17.0.1:47860 on port 1883.
+1778692336: New client connected from 172.17.0.1:47860 as esp32-2 (p4, c1, k15).
+1778692359: Client esp32-2 [172.17.0.1:47860] disconnected: exceeded timeout.
+1778692360: New connection from 172.17.0.1:57358 on port 1883.
+1778692367: New connection from 172.17.0.1:47180 on port 1883.
+1778692367: New client connected from 172.17.0.1:47180 as esp32-2 (p4, c1, k15).
+1778692375: Client 172.17.0.1 [172.17.0.1:57358] disconnected: connection closed by client.
+1778693255: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778693636: Client esp32-2 [172.17.0.1:47180] disconnected: connection closed by client.
+1778693639: New connection from 172.17.0.1:59674 on port 1883.
+1778693639: New client connected from 172.17.0.1:59674 as esp32-2 (p4, c1, k15).
+1778693662: Client esp32-2 [172.17.0.1:59674] disconnected: exceeded timeout.
+1778693662: New connection from 172.17.0.1:58438 on port 1883.
+1778693662: New client connected from 172.17.0.1:58438 as esp32-2 (p4, c1, k15).
+1778694574: Client esp32-2 [172.17.0.1:58438] disconnected: connection closed by client.
+1778694574: New connection from 172.17.0.1:40464 on port 1883.
+1778694577: New client connected from 172.17.0.1:40464 as esp32-2 (p4, c1, k15).
+1778694577: Client esp32-2 [172.17.0.1:40464] disconnected: connection closed by client.
+1778694579: New connection from 172.17.0.1:38488 on port 1883.
+1778694579: New client connected from 172.17.0.1:38488 as esp32-2 (p4, c1, k15).
+1778695056: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778695468: Client esp32-2 [172.17.0.1:38488] disconnected: connection closed by client.
+1778695469: New connection from 172.17.0.1:59106 on port 1883.
+1778695469: New client connected from 172.17.0.1:59106 as esp32-2 (p4, c1, k15).
+1778695710: Client esp32-2 [172.17.0.1:59106] disconnected: exceeded timeout.
+1778695710: New connection from 172.17.0.1:57286 on port 1883.
+1778695710: New client connected from 172.17.0.1:57286 as esp32-2 (p4, c1, k15).
+1778696220: Client esp32-2 [172.17.0.1:57286] disconnected: exceeded timeout.
+1778696223: New connection from 172.17.0.1:37314 on port 1883.
+1778696223: New client connected from 172.17.0.1:37314 as esp32-2 (p4, c1, k15).
+1778696246: Client esp32-2 [172.17.0.1:37314] disconnected: exceeded timeout.
+1778696247: New connection from 172.17.0.1:55396 on port 1883.
+1778696247: New client connected from 172.17.0.1:55396 as esp32-2 (p4, c1, k15).
+1778696247: Client esp32-2 [172.17.0.1:55396] disconnected: connection closed by client.
+1778696251: New connection from 172.17.0.1:55402 on port 1883.
+1778696251: New client connected from 172.17.0.1:55402 as esp32-2 (p4, c1, k15).
+1778696274: Client esp32-2 [172.17.0.1:55402] disconnected: exceeded timeout.
+1778696274: New connection from 172.17.0.1:55546 on port 1883.
+1778696274: New client connected from 172.17.0.1:55546 as esp32-2 (p4, c1, k15).
+1778696297: Client esp32-2 [172.17.0.1:55546] disconnected: exceeded timeout.
+1778696297: New connection from 172.17.0.1:41826 on port 1883.
+1778696297: New client connected from 172.17.0.1:41826 as esp32-2 (p4, c1, k15).
+1778696320: Client esp32-2 [172.17.0.1:41826] disconnected: exceeded timeout.
+1778696320: New connection from 172.17.0.1:44146 on port 1883.
+1778696320: New client connected from 172.17.0.1:44146 as esp32-2 (p4, c1, k15).
+1778696360: Client esp32-2 [172.17.0.1:44146] disconnected: exceeded timeout.
+1778696362: New connection from 172.17.0.1:59470 on port 1883.
+1778696362: New client connected from 172.17.0.1:59470 as esp32-2 (p4, c1, k15).
+1778696385: Client esp32-2 [172.17.0.1:59470] disconnected: exceeded timeout.
+1778696385: New connection from 172.17.0.1:43188 on port 1883.
+1778696385: New client connected from 172.17.0.1:43188 as esp32-2 (p4, c1, k15).
+1778696408: Client esp32-2 [172.17.0.1:43188] disconnected: exceeded timeout.
+1778696408: New connection from 172.17.0.1:45202 on port 1883.
+1778696408: New client connected from 172.17.0.1:45202 as esp32-2 (p4, c1, k15).
+1778696431: Client esp32-2 [172.17.0.1:45202] disconnected: exceeded timeout.
+1778696432: New connection from 172.17.0.1:37968 on port 1883.
+1778696432: New client connected from 172.17.0.1:37968 as esp32-2 (p4, c1, k15).
+1778696455: Client esp32-2 [172.17.0.1:37968] disconnected: exceeded timeout.
+1778696457: New connection from 172.17.0.1:34578 on port 1883.
+1778696457: New client connected from 172.17.0.1:34578 as esp32-2 (p4, c1, k15).
+1778696480: Client esp32-2 [172.17.0.1:34578] disconnected: exceeded timeout.
+1778696480: New connection from 172.17.0.1:40660 on port 1883.
+1778696480: New client connected from 172.17.0.1:40660 as esp32-2 (p4, c1, k15).
+1778696503: Client esp32-2 [172.17.0.1:40660] disconnected: exceeded timeout.
+1778696503: New connection from 172.17.0.1:51908 on port 1883.
+1778696503: New client connected from 172.17.0.1:51908 as esp32-2 (p4, c1, k15).
+1778696534: New connection from 172.17.0.1:42322 on port 1883.
+1778696534: Client esp32-2 [172.17.0.1:51908] disconnected: session taken over.
+1778696534: New client connected from 172.17.0.1:42322 as esp32-2 (p4, c1, k15).
+1778696557: Client esp32-2 [172.17.0.1:42322] disconnected: exceeded timeout.
+1778696558: New connection from 172.17.0.1:58664 on port 1883.
+1778696558: New client connected from 172.17.0.1:58664 as esp32-2 (p4, c1, k15).
+1778696581: Client esp32-2 [172.17.0.1:58664] disconnected: exceeded timeout.
+1778696581: New connection from 172.17.0.1:39846 on port 1883.
+1778696581: New client connected from 172.17.0.1:39846 as esp32-2 (p4, c1, k15).
+1778696618: Client esp32-2 [172.17.0.1:39846] disconnected: exceeded timeout.
+1778696618: New connection from 172.17.0.1:44972 on port 1883.
+1778696618: New client connected from 172.17.0.1:44972 as esp32-2 (p4, c1, k15).
+1778696651: New connection from 172.17.0.1:44674 on port 1883.
+1778696651: Client esp32-2 [172.17.0.1:44972] disconnected: session taken over.
+1778696651: New client connected from 172.17.0.1:44674 as esp32-2 (p4, c1, k15).
+1778696684: Client esp32-2 [172.17.0.1:44674] disconnected: connection closed by client.
+1778696684: New connection from 172.17.0.1:37250 on port 1883.
+1778696684: New client connected from 172.17.0.1:37250 as esp32-2 (p4, c1, k15).
+1778696857: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778698658: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778700459: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778700875: Client esp32-2 [172.17.0.1:37250] disconnected: exceeded timeout.
+1778700878: New connection from 172.17.0.1:60882 on port 1883.
+1778700878: New client connected from 172.17.0.1:60882 as esp32-2 (p4, c1, k15).
+1778701676: Client esp32-2 [172.17.0.1:60882] disconnected: exceeded timeout.
+1778701697: New connection from 172.17.0.1:44614 on port 1883.
+1778701697: New client connected from 172.17.0.1:44614 as esp32-2 (p4, c1, k15).
+1778701719: Client esp32-2 [172.17.0.1:44614] disconnected: exceeded timeout.
+1778701720: New connection from 172.17.0.1:38202 on port 1883.
+1778701720: New client connected from 172.17.0.1:38202 as esp32-2 (p4, c1, k15).
+1778701729: Client mqttjs_eaee6731 [172.17.0.1:58542] disconnected: connection closed by client.
+1778701767: Client esp32-2 [172.17.0.1:38202] disconnected: exceeded timeout.
+1778701768: New connection from 172.17.0.1:53896 on port 1883.
+1778701768: New client connected from 172.17.0.1:53896 as esp32-2 (p4, c1, k15).
+1778701818: New connection from 172.17.0.1:59562 on port 1883.
+1778701818: New client connected from 172.17.0.1:59562 as mqttjs_e18e8497 (p4, c1, k60).
+1778702259: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778702635: Client esp32-2 [172.17.0.1:53896] disconnected: exceeded timeout.
+1778702653: New connection from 172.17.0.1:39136 on port 1883.
+1778702658: New connection from 172.17.0.1:33814 on port 1883.
+1778702658: New client connected from 172.17.0.1:33814 as esp32-2 (p4, c1, k15).
+1778702680: Client esp32-2 [172.17.0.1:33814] disconnected: exceeded timeout.
+1778702683: New connection from 172.17.0.1:55694 on port 1883.
+1778702683: Client 172.17.0.1 [172.17.0.1:39136] disconnected: exceeded timeout.
+1778702686: New client connected from 172.17.0.1:55694 as esp32-2 (p4, c1, k15).
+1778702686: Client esp32-2 [172.17.0.1:55694] disconnected: connection closed by client.
+1778702690: New connection from 172.17.0.1:51428 on port 1883.
+1778702690: New connection from 172.17.0.1:51442 on port 1883.
+1778702690: New client connected from 172.17.0.1:51442 as esp32-2 (p4, c1, k15).
+1778702698: Client esp32-2 [172.17.0.1:51442] disconnected: session taken over.
+1778702698: New client connected from 172.17.0.1:51428 as esp32-2 (p4, c1, k15).
+1778702698: Client esp32-2 [172.17.0.1:51428] disconnected: connection closed by client.
+1778702698: New connection from 172.17.0.1:41836 on port 1883.
+1778702699: New client connected from 172.17.0.1:41836 as esp32-2 (p4, c1, k15).
+1778702721: Client esp32-2 [172.17.0.1:41836] disconnected: exceeded timeout.
+1778702724: New connection from 172.17.0.1:47330 on port 1883.
+1778702724: New client connected from 172.17.0.1:47330 as esp32-2 (p4, c1, k15).
+1778702747: Client esp32-2 [172.17.0.1:47330] disconnected: exceeded timeout.
+1778702750: New connection from 172.17.0.1:34948 on port 1883.
+1778702750: New client connected from 172.17.0.1:34948 as esp32-2 (p4, c1, k15).
+1778702750: Client esp32-2 [172.17.0.1:34948] disconnected: connection closed by client.
+1778702760: New connection from 172.17.0.1:36026 on port 1883.
+1778702761: New client connected from 172.17.0.1:36026 as esp32-2 (p4, c1, k15).
+1778702761: Client esp32-2 [172.17.0.1:36026] disconnected: connection closed by client.
+1778702763: New connection from 172.17.0.1:36042 on port 1883.
+1778702763: New client connected from 172.17.0.1:36042 as esp32-2 (p4, c1, k15).
+1778702785: Client esp32-2 [172.17.0.1:36042] disconnected: exceeded timeout.
+1778702785: New connection from 172.17.0.1:52346 on port 1883.
+1778702786: New client connected from 172.17.0.1:52346 as esp32-2 (p4, c1, k15).
+1778702822: Client esp32-2 [172.17.0.1:52346] disconnected: exceeded timeout.
+1778702823: New connection from 172.17.0.1:36900 on port 1883.
+1778702823: New client connected from 172.17.0.1:36900 as esp32-2 (p4, c1, k15).
+1778702853: Client esp32-2 [172.17.0.1:36900] disconnected: exceeded timeout.
+1778702855: New connection from 172.17.0.1:49850 on port 1883.
+1778702855: New client connected from 172.17.0.1:49850 as esp32-2 (p4, c1, k15).
+1778702855: Client esp32-2 [172.17.0.1:49850] disconnected: connection closed by client.
+1778702858: New connection from 172.17.0.1:49854 on port 1883.
+1778702858: New client connected from 172.17.0.1:49854 as esp32-2 (p4, c1, k15).
+1778702892: New connection from 172.17.0.1:39080 on port 1883.
+1778702892: Client esp32-2 [172.17.0.1:49854] disconnected: session taken over.
+1778702892: New client connected from 172.17.0.1:39080 as esp32-2 (p4, c1, k15).
+1778702892: Client esp32-2 [172.17.0.1:39080] disconnected: connection closed by client.
+1778702893: New connection from 172.17.0.1:39094 on port 1883.
+1778702893: New client connected from 172.17.0.1:39094 as esp32-2 (p4, c1, k15).
+1778702916: Client esp32-2 [172.17.0.1:39094] disconnected: exceeded timeout.
+1778702917: New connection from 172.17.0.1:42688 on port 1883.
+1778702917: New client connected from 172.17.0.1:42688 as esp32-2 (p4, c1, k15).
+1778702977: New connection from 172.17.0.1:41828 on port 1883.
+1778702977: Client esp32-2 [172.17.0.1:42688] disconnected: session taken over.
+1778702977: New client connected from 172.17.0.1:41828 as esp32-2 (p4, c1, k15).
+1778703052: Client esp32-2 [172.17.0.1:41828] disconnected: connection closed by client.
+1778703052: New connection from 172.17.0.1:54590 on port 1883.
+1778703053: New client connected from 172.17.0.1:54590 as esp32-2 (p4, c1, k15).
+1778703434: Client esp32-2 [172.17.0.1:54590] disconnected: exceeded timeout.
+1778703435: New connection from 172.17.0.1:53042 on port 1883.
+1778703435: New client connected from 172.17.0.1:53042 as esp32-2 (p4, c1, k15).
+1778703534: Client esp32-2 [172.17.0.1:53042] disconnected: exceeded timeout.
+1778704060: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778704080: New connection from 172.17.0.1:48794 on port 1883.
+1778704080: New client connected from 172.17.0.1:48794 as esp32-2 (p4, c1, k15).
+1778705317: Client mqttjs_e18e8497 [172.17.0.1:59562] disconnected: connection closed by client.
+1778705321: New connection from 172.17.0.1:49800 on port 1883.
+1778705321: New client connected from 172.17.0.1:49800 as mqttjs_d2083812 (p4, c1, k60).
+1778705861: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778705862: New connection from 172.17.0.1:53386 on port 1883.
+1778705862: Client esp32-2 [172.17.0.1:48794] disconnected: session taken over.
+1778705862: New client connected from 172.17.0.1:53386 as esp32-2 (p4, c1, k15).
+1778706000: Client esp32-2 [172.17.0.1:53386] disconnected: exceeded timeout.
+1778706012: New connection from 172.17.0.1:41072 on port 1883.
+1778706012: New client connected from 172.17.0.1:41072 as esp32-2 (p4, c1, k15).
+1778706506: Client esp32-2 [172.17.0.1:41072] disconnected: connection closed by client.
+1778706506: New connection from 172.17.0.1:60246 on port 1883.
+1778706506: New client connected from 172.17.0.1:60246 as esp32-2 (p4, c1, k15).
+1778706675: New connection from 172.17.0.1:40694 on port 1883.
+1778706675: Client esp32-2 [172.17.0.1:60246] disconnected: session taken over.
+1778706675: New client connected from 172.17.0.1:40694 as esp32-2 (p4, c1, k15).
+1778706698: Client esp32-2 [172.17.0.1:40694] disconnected: exceeded timeout.
+1778706698: New connection from 172.17.0.1:40614 on port 1883.
+1778706698: New client connected from 172.17.0.1:40614 as esp32-2 (p4, c1, k15).
+1778706729: Client esp32-2 [172.17.0.1:40614] disconnected: connection closed by client.
+1778706731: New connection from 172.17.0.1:37214 on port 1883.
+1778706731: New client connected from 172.17.0.1:37214 as esp32-2 (p4, c1, k15).
+1778706854: Client esp32-2 [172.17.0.1:37214] disconnected: exceeded timeout.
+1778706857: New connection from 172.17.0.1:41244 on port 1883.
+1778706857: New client connected from 172.17.0.1:41244 as esp32-2 (p4, c1, k15).
+1778706884: Client esp32-2 [172.17.0.1:41244] disconnected: exceeded timeout.
+1778706886: New connection from 172.17.0.1:33822 on port 1883.
+1778706886: New client connected from 172.17.0.1:33822 as esp32-2 (p4, c1, k15).
+1778706964: Client esp32-2 [172.17.0.1:33822] disconnected: exceeded timeout.
+1778706965: New connection from 172.17.0.1:43018 on port 1883.
+1778706965: New client connected from 172.17.0.1:43018 as esp32-2 (p4, c1, k15).
+1778706988: Client esp32-2 [172.17.0.1:43018] disconnected: exceeded timeout.
+1778706989: New connection from 172.17.0.1:57596 on port 1883.
+1778706989: New client connected from 172.17.0.1:57596 as esp32-2 (p4, c1, k15).
+1778707012: Client esp32-2 [172.17.0.1:57596] disconnected: exceeded timeout.
+1778707012: New connection from 172.17.0.1:57278 on port 1883.
+1778707012: New client connected from 172.17.0.1:57278 as esp32-2 (p4, c1, k15).
+1778707035: Client esp32-2 [172.17.0.1:57278] disconnected: exceeded timeout.
+1778707036: New connection from 172.17.0.1:49086 on port 1883.
+1778707039: New client connected from 172.17.0.1:49086 as esp32-2 (p4, c1, k15).
+1778707039: Client esp32-2 [172.17.0.1:49086] disconnected: connection closed by client.
+1778707041: New connection from 172.17.0.1:49090 on port 1883.
+1778707041: New client connected from 172.17.0.1:49090 as esp32-2 (p4, c1, k15).
+1778707041: Client esp32-2 [172.17.0.1:49090] disconnected: connection closed by client.
+1778707045: New connection from 172.17.0.1:42374 on port 1883.
+1778707045: New client connected from 172.17.0.1:42374 as esp32-2 (p4, c1, k15).
+1778707068: Client esp32-2 [172.17.0.1:42374] disconnected: exceeded timeout.
+1778707071: New connection from 172.17.0.1:36230 on port 1883.
+1778707071: New client connected from 172.17.0.1:36230 as esp32-2 (p4, c1, k15).
+1778707071: Client esp32-2 [172.17.0.1:36230] disconnected: connection closed by client.
+1778707073: New connection from 172.17.0.1:36238 on port 1883.
+1778707073: New client connected from 172.17.0.1:36238 as esp32-2 (p4, c1, k15).
+1778707096: Client esp32-2 [172.17.0.1:36238] disconnected: exceeded timeout.
+1778707097: New connection from 172.17.0.1:59664 on port 1883.
+1778707097: New client connected from 172.17.0.1:59664 as esp32-2 (p4, c1, k15).
+1778707133: New connection from 172.17.0.1:56278 on port 1883.
+1778707133: Client esp32-2 [172.17.0.1:59664] disconnected: session taken over.
+1778707133: New client connected from 172.17.0.1:56278 as esp32-2 (p4, c1, k15).
+1778707156: Client esp32-2 [172.17.0.1:56278] disconnected: exceeded timeout.
+1778707161: New connection from 172.17.0.1:40620 on port 1883.
+1778707161: New client connected from 172.17.0.1:40620 as esp32-2 (p4, c1, k15).
+1778707184: Client esp32-2 [172.17.0.1:40620] disconnected: exceeded timeout.
+1778707187: New connection from 172.17.0.1:51370 on port 1883.
+1778707187: New client connected from 172.17.0.1:51370 as esp32-2 (p4, c1, k15).
+1778707209: Client esp32-2 [172.17.0.1:51370] disconnected: exceeded timeout.
+1778707210: New connection from 172.17.0.1:44426 on port 1883.
+1778707213: New client connected from 172.17.0.1:44426 as esp32-2 (p4, c1, k15).
+1778707213: Client esp32-2 [172.17.0.1:44426] disconnected: connection closed by client.
+1778707214: New connection from 172.17.0.1:55480 on port 1883.
+1778707214: New client connected from 172.17.0.1:55480 as esp32-2 (p4, c1, k15).
+1778707237: Client esp32-2 [172.17.0.1:55480] disconnected: exceeded timeout.
+1778707237: New connection from 172.17.0.1:44138 on port 1883.
+1778707237: New client connected from 172.17.0.1:44138 as esp32-2 (p4, c1, k15).
+1778707260: Client esp32-2 [172.17.0.1:44138] disconnected: exceeded timeout.
+1778707260: New connection from 172.17.0.1:55150 on port 1883.
+1778707260: New client connected from 172.17.0.1:55150 as esp32-2 (p4, c1, k15).
+1778707391: Client esp32-2 [172.17.0.1:55150] disconnected: exceeded timeout.
+1778707391: New connection from 172.17.0.1:39192 on port 1883.
+1778707391: New client connected from 172.17.0.1:39192 as esp32-2 (p4, c1, k15).
+1778707662: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778709463: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1778709790: Client esp32-2 [172.17.0.1:39192] disconnected: exceeded timeout.
+1778709802: New connection from 172.17.0.1:58982 on port 1883.
+1778709802: New client connected from 172.17.0.1:58982 as esp32-2 (p4, c1, k15).
+1778709897: Client mqttjs_d2083812 [172.17.0.1:49800] disconnected: connection closed by client.
+1778709918: New connection from 172.17.0.1:38774 on port 1883.
+1778709918: New client connected from 172.17.0.1:38774 as mqttjs_d6076d18 (p4, c1, k60).
+1778710052: New connection from 172.17.0.1:54154 on port 1883.
+1778710052: Client esp32-2 [172.17.0.1:58982] disconnected: session taken over.
+1778710052: New client connected from 172.17.0.1:54154 as esp32-2 (p4, c1, k15).
+1778710060: Client mqttjs_d6076d18 [172.17.0.1:38774] disconnected: connection closed by client.
+1778710063: New connection from 172.17.0.1:41822 on port 1883.
+1778710063: New client connected from 172.17.0.1:41822 as mqttjs_85fc9096 (p4, c1, k60).
+1778710624: New connection from 172.17.0.1:53360 on port 1883.
+1778710624: Client esp32-2 [172.17.0.1:54154] disconnected: session taken over.
+1778710624: New client connected from 172.17.0.1:53360 as esp32-2 (p4, c1, k15).

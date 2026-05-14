@@ -108,3 +108,37 @@ td {
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
+
+.history-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  text-align: left;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+.history-item b,
+.history-item span,
+.history-item small {
+  display: block;
+}
+
+.history-panel {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+}

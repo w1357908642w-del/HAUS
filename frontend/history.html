@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>История</title>
+  <link rel="stylesheet" href="./history.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>История</h1>
+      <a href="./index.html">На главную</a>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="soil">Почва</button>
+      <button class="tab" data-tab="devices">Устройства</button>
+      <button class="tab" data-tab="climate">Климат</button>
+    </div>
+
+    <section id="splitView" class="split">
+      <aside class="list" id="itemsList"></aside>
+
+      <section class="panel">
+        <h2 id="selectedTitle">Выберите объект</h2>
+        <table>
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="climateView" class="panel hidden">
+      <h2>История климата</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Время</th>
+            <th>Температура</th>
+            <th>Влажность</th>
+            <th>Давление</th>
+          </tr>
+        </thead>
+        <tbody id="climateBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="./history.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+const API = "http://localhost:3000/api";
+const token = localStorage.getItem("token");
+
+const tabs = document.querySelectorAll(".tab");
+const splitView = document.getElementById("splitView");
+const climateView = document.getElementById("climateView");
+const itemsList = document.getElementById("itemsList");
+const selectedTitle = document.getElementById("selectedTitle");
+const tableHead = document.getElementById("tableHead");
+const tableBody = document.getElementById("tableBody");
+const climateBody = document.getElementById("climateBody");
+
+let activeTab = "soil";
+
+if (!token) {
+  window.location.href = "./login.html";
+}
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    activeTab = tab.dataset.tab;
+    loadTab();
+  });
+});
+
+async function api(path) {
+  const response = await fetch(`${API}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.status === 401) {
+    localStorage.removeItem("token");
+    window.location.href = "./login.html";
+    return;
+  }
+
+  if (!response.ok) {
+    throw new Error("Ошибка API");
+  }
+
+  return response.json();
+}
+
+function formatDate(value) {
+  if (!value) return "—";
+  return new Date(value).toLocaleString("ru-RU");
+}
+
+function valueOrDash(value, suffix = "") {
+  if (value === null || value === undefined) return "—";
+  return `${value}${suffix}`;
+}
+
+async function loadTab() {
+  itemsList.innerHTML = "";
+  tableBody.innerHTML = "";
+  tableHead.innerHTML = "";
+  selectedTitle.textContent = "Выберите объект";
+
+  if (activeTab === "climate") {
+    splitView.classList.add("hidden");
+    climateView.classList.remove("hidden");
+    await loadClimate();
+    return;
+  }
+
+  climateView.classList.add("hidden");
+  splitView.classList.remove("hidden");
+
+  if (activeTab === "soil") {
+    await loadSoilList();
+  }
+
+  if (activeTab === "devices") {
+    await loadDeviceList();
+  }
+}
+
+async function loadSoilList() {
+  const sensors = await api("/history/soil");
+
+  if (!sensors.length) {
+    itemsList.innerHTML = "<p>Датчиков почвы пока нет</p>";
+    return;
+  }
+
+  sensors.forEach((sensor) => {
+    const button = document.createElement("button");
+    button.className = "item";
+    button.innerHTML = `
+      <strong>${sensor.name}</strong>
+      <span>ID: ${sensor.sensor_id}</span>
+      <small>Последнее: ${valueOrDash(sensor.percent_value, "%")}</small>
+    `;
+
+    button.addEventListener("click", () => loadSoilHistory(sensor));
+    itemsList.appendChild(button);
+  });
+}
+
+async function loadSoilHistory(sensor) {
+  selectedTitle.textContent = `${sensor.name} / ${sensor.sensor_id}`;
+  tableHead.innerHTML = `
+    <tr>
+      <th>Время</th>
+      <th>Процент</th>
+      <th>Raw</th>
+    </tr>
+  `;
+
+  const rows = await api(`/history/soil/${sensor.id}`);
+
+  tableBody.innerHTML = rows.map((row) => `
+    <tr>
+      <td>${formatDate(row.created_at)}</td>
+      <td>${valueOrDash(row.percent_value, "%")}</td>
+      <td>${valueOrDash(row.raw_value)}</td>
+    </tr>
+  `).join("");
+}
+
+async function loadDeviceList() {
+  const devices = await api("/history/devices");
+
+  if (!devices.length) {
+    itemsList.innerHTML = "<p>Устройств пока нет</p>";
+    return;
+  }
+
+  devices.forEach((device) => {
+    const button = document.createElement("button");
+    button.className = "item";
+    button.innerHTML = `
+      <strong>${device.name}</strong>
+      <span>ID: ${device.managed_id}</span>
+      <small>Состояние: ${device.state}</small>
+    `;
+
+    button.addEventListener("click", () => loadDeviceHistory(device));
+    itemsList.appendChild(button);
+  });
+}
+
+async function loadDeviceHistory(device) {
+  selectedTitle.textContent = `${device.name} / ${device.managed_id}`;
+  tableHead.innerHTML = `
+    <tr>
+      <th>Время</th>
+      <th>Событие</th>
+    </tr>
+  `;
+
+  const rows = await api(`/history/devices/${device.id}`);
+
+  tableBody.innerHTML = rows.map((row) => `
+    <tr>
+      <td>${formatDate(row.created_at)}</td>
+      <td>${row.previous_state || "—"} → ${row.new_state}</td>
+    </tr>
+  `).join("");
+}
+
+async function loadClimate() {
+  const rows = await api("/history/climate");
+
+  climateBody.innerHTML = rows.map((row) => `
+    <tr>
+      <td>${formatDate(row.created_at)}</td>
+      <td>${valueOrDash(row.temperature, " °C")}</td>
+      <td>${valueOrDash(row.humidity, " %")}</td>
+      <td>${valueOrDash(row.pressure)}</td>
+    </tr>
+  `).join("");
+}
+
+loadTab();

@@ -3,7 +3,6 @@ const db = require("./db");
 const { validCredentials } = require("./auth");
 
 const client = mqtt.connect(process.env.MQTT_URL);
-
 const deviceStatus = {};
 
 function isValidAuth(auth) {
@@ -20,9 +19,7 @@ function touchDevice(login, espDeviceId) {
 
 function isEspOnline(login) {
   const status = deviceStatus[login];
-
   if (!status?.lastSeen) return false;
-
   return Date.now() - new Date(status.lastSeen).getTime() < 30000;
 }
 
@@ -45,15 +42,12 @@ client.on("connect", () => {
   client.subscribe("home/esp32/soil/state");
 });
 
-
 client.on("message", async (topic, message) => {
   try {
     const payload = message.toString();
-
     console.log("MQTT RAW:", topic, payload);
 
     let data;
-
     try {
       data = JSON.parse(payload);
     } catch {
@@ -63,13 +57,11 @@ client.on("message", async (topic, message) => {
     if (!isValidAuth(data.auth)) return;
 
     const login = data.auth.login;
-    const espDeviceId = data.device || "esp32";
+    const espDeviceId = data.device || login;
 
     touchDevice(login, espDeviceId);
 
-    if (topic === "home/esp32/status") {
-      return;
-    }
+    if (topic === "home/esp32/status") return;
 
     if (topic === "home/esp32/sensors") {
       await db.query(
@@ -80,10 +72,9 @@ client.on("message", async (topic, message) => {
           temperature,
           humidity,
           pressure,
-          soil_percent,
           rtc_time
         )
-        VALUES ($1,$2,$3,$4,$5,$6,$7)
+        VALUES ($1,$2,$3,$4,$5,$6)
         `,
         [
           login,
@@ -91,7 +82,6 @@ client.on("message", async (topic, message) => {
           data.temperature ?? null,
           data.humidity ?? null,
           data.pressure ?? null,
-          data.soil_percent ?? null,
           data.time ?? null,
         ]
       );
@@ -99,52 +89,34 @@ client.on("message", async (topic, message) => {
 
     if (topic === "home/esp32/devices/list") {
       const devices = data.devices || [];
-
-      await db.query(
-        `
-        DELETE FROM managed_devices
-        WHERE device_login = $1
-          AND esp_device_id = $2
-        `,
-        [login, espDeviceId]
-      );
-
       for (const device of devices) {
-        await upsertDevice(login, espDeviceId, device);
+        await upsertDevice(login, espDeviceId, device, false);
       }
     }
 
     if (topic === "home/esp32/devices/state") {
-      await upsertDevice(login, espDeviceId, data.deviceData);
+      await upsertDevice(login, espDeviceId, data.deviceData, true);
     }
+
     if (topic === "home/esp32/soil/list") {
       const sensors = data.sensors || [];
-
-      await db.query(
-        `
-        DELETE FROM soil_sensors
-        WHERE device_login = $1
-        AND esp_device_id = $2
-        `,
-        [login, espDeviceId]
-      );
-
       for (const sensor of sensors) {
-        await upsertSoilSensor(login, espDeviceId, sensor);
+        await upsertSoilSensor(login, espDeviceId, sensor, false);
       }
     }
 
     if (topic === "home/esp32/soil/state") {
-      await upsertSoilSensor(login, espDeviceId, data.sensor);
+      await upsertSoilSensor(login, espDeviceId, data.sensor, true);
     }
   } catch (error) {
     console.error("MQTT error:", error.message);
   }
 });
-async function upsertSoilSensor(login, espDeviceId, sensor) {
+
+async function upsertSoilSensor(login, espDeviceId, sensor, saveReading) {
   if (!sensor?.id) return;
 
-  await db.query(
+  const result = await db.query(
     `
     INSERT INTO soil_sensors(
       device_login,
@@ -161,31 +133,65 @@ async function upsertSoilSensor(login, espDeviceId, sensor) {
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NOW())
     ON CONFLICT(device_login, esp_device_id, sensor_id)
     DO UPDATE SET
-      name = $4,
-      pin = $5,
-      raw_value = $6,
-      percent_value = $7,
-      dry_value = $8,
-      wet_value = $9,
+      name = EXCLUDED.name,
+      pin = EXCLUDED.pin,
+      raw_value = EXCLUDED.raw_value,
+      percent_value = EXCLUDED.percent_value,
+      dry_value = EXCLUDED.dry_value,
+      wet_value = EXCLUDED.wet_value,
       updated_at = NOW()
+    RETURNING id
     `,
     [
       login,
       espDeviceId,
       sensor.id,
-      sensor.name,
-      sensor.pin,
+      sensor.name || sensor.id,
+      sensor.pin ?? null,
       sensor.rawValue ?? null,
       sensor.percentValue ?? null,
       sensor.dryValue ?? null,
       sensor.wetValue ?? null,
     ]
   );
+
+  if (saveReading) {
+    await db.query(
+      `
+      INSERT INTO soil_readings(
+        soil_sensor_db_id,
+        raw_value,
+        percent_value
+      )
+      VALUES ($1,$2,$3)
+      `,
+      [
+        result.rows[0].id,
+        sensor.rawValue ?? null,
+        sensor.percentValue ?? null,
+      ]
+    );
+  }
 }
-async function upsertDevice(login, espDeviceId, device) {
+
+async function upsertDevice(login, espDeviceId, device, saveEvent) {
   if (!device?.id) return;
 
-  await db.query(
+  const oldResult = await db.query(
+    `
+    SELECT id, state
+    FROM managed_devices
+    WHERE device_login = $1
+      AND esp_device_id = $2
+      AND managed_id = $3
+    `,
+    [login, espDeviceId, device.id]
+  );
+
+  const previousState = oldResult.rows[0]?.state || null;
+  const newState = device.state || "OFF";
+
+  const result = await db.query(
     `
     INSERT INTO managed_devices(
       device_login,
@@ -207,26 +213,27 @@ async function upsertDevice(login, espDeviceId, device) {
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,NOW())
     ON CONFLICT(device_login, esp_device_id, managed_id)
     DO UPDATE SET
-      name = $4,
-      type = $5,
-      state = $6,
-      mode = $7,
-      turn_on_time = $8,
-      turn_off_time = $9,
-      last_turn_on_date = $10,
-      repeat_every_days = $11,
-      pin = $12,
-      active_high = $13,
-      ip = $14,
+      name = EXCLUDED.name,
+      type = EXCLUDED.type,
+      state = EXCLUDED.state,
+      mode = EXCLUDED.mode,
+      turn_on_time = EXCLUDED.turn_on_time,
+      turn_off_time = EXCLUDED.turn_off_time,
+      last_turn_on_date = EXCLUDED.last_turn_on_date,
+      repeat_every_days = EXCLUDED.repeat_every_days,
+      pin = EXCLUDED.pin,
+      active_high = EXCLUDED.active_high,
+      ip = EXCLUDED.ip,
       updated_at = NOW()
+    RETURNING id
     `,
     [
       login,
       espDeviceId,
       device.id,
-      device.name,
-      device.type,
-      device.state || "OFF",
+      device.name || device.id,
+      device.type || null,
+      newState,
       device.mode || "AUTO",
       device.turnOnTime || null,
       device.turnOffTime || null,
@@ -237,6 +244,20 @@ async function upsertDevice(login, espDeviceId, device) {
       device.ip || null,
     ]
   );
+
+  if (saveEvent && previousState !== newState) {
+    await db.query(
+      `
+      INSERT INTO device_events(
+        managed_device_db_id,
+        previous_state,
+        new_state
+      )
+      VALUES ($1,$2,$3)
+      `,
+      [result.rows[0].id, previousState, newState]
+    );
+  }
 }
 
 function publishToEsp(login, topic, payload = {}) {
@@ -251,7 +272,6 @@ function publishToEsp(login, topic, payload = {}) {
   });
 
   console.log("MQTT SEND:", topic, message);
-
   client.publish(topic, message, { qos: 1 });
 }
 
