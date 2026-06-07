@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>HAUS Smart Home</title>
+  <title>Smart Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>
-  <h1>HAUS Smart Home</h1>
+  <h1>Smart Home</h1>
 
   <nav id="nav" class="hidden">
     <button onclick="showPage('dashboard')">Главная</button>
@@ -20,13 +20,13 @@
 <main>
   <section id="loginPage" class="page active">
     <div class="card login-card">
-      <h2>Вход к ESP32</h2>
+      <h2>Добро пожаловать</h2>
 
-      <label>Логин ESP32</label>
-      <input id="loginInput" type="text" placeholder="esp32_2" />
+      <label>Логин</label>
+      <input id="loginInput" type="text" />
 
-      <label>Пароль ESP32</label>
-      <input id="passwordInput" type="password" placeholder="1234" />
+      <label>Пароль</label>
+      <input id="passwordInput" type="password" />
 
       <button onclick="login()">Войти</button>
 
@@ -52,7 +52,7 @@
         <h3>Сенсоры</h3>
         <p>Температура: <b id="temperature">-</b> °C</p>
         <p>Влажность воздуха: <b id="humidity">-</b> %</p>
-        <p>Давление: <b id="pressure">-</b></p>
+        <p>Давление: <b id="pressure">-</b> мбар</p>
         <p>Время RTC: <b id="rtcTime">-</b></p>
       </div>
 
@@ -60,7 +60,7 @@
         <h3>Добавить / редактировать устройство</h3>
 
         <label>ID</label>
-        <input id="deviceId" placeholder="light_1" />
+        <input id="deviceId" />
 
         <label>Название</label>
         <input id="deviceName" placeholder="Свет" />
@@ -73,11 +73,11 @@
 
         <div id="gpioFields">
           <label>GPIO пин</label>
-          <input id="devicePin" type="number" placeholder="25" />
+          <input id="devicePin" type="number" placeholder="13" />
 
           <label class="checkbox">
             <input id="deviceActiveHigh" type="checkbox" checked />
-            Active HIGH
+            Включается высоким уровнем
           </label>
         </div>
 
@@ -109,12 +109,12 @@
         <h3>Добавить / редактировать датчик почвы</h3>
 
         <label>ID</label>
-        <input id="soilId" placeholder="soil_1" />
+        <input id="soilId" />
 
         <label>Название</label>
         <input id="soilName" placeholder="Фикус" />
 
-        <label>ADC1 пин</label>
+        <label>Пин</label>
         <select id="soilPin">
           <option value="32">GPIO 32</option>
           <option value="33">GPIO 33</option>
@@ -124,10 +124,10 @@
           <option value="39">GPIO 39</option>
         </select>
 
-        <label>Dry value</label>
+        <label>Значение сухой почвы</label>
         <input id="soilDry" type="number" value="3200" />
 
-        <label>Wet value</label>
+        <label>Значение влажной почвы</label>
         <input id="soilWet" type="number" value="1200" />
 
         <button onclick="saveSoilSensor()">Сохранить датчик</button>
